@@ -1,0 +1,2 @@
+packages/**/**.test.ts
+node_modules/

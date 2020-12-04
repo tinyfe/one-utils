@@ -1,0 +1,18 @@
+{
+    "packages": ["packages/*"],
+    "version": "independent",
+    "useWorkspaces": false,
+    "command": {
+        "publish": {
+            "ignoreChanges": ["**/*.md", "__tests__"]
+        },
+        "run": {
+            "stream": true
+        },
+        "bootstrap": {
+            "ignorePrepublish": true,
+            "hoist": true
+        }
+    },
+    "hoist": ["jest", "typescript"]
+}
