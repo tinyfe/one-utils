@@ -1,0 +1,15 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": "./",
+    // "outDir": "./lib",
+    // "declarationDir": "./lib/@types",
+    "typeRoots": ["./typings", "./node_modules/@types"],
+    "paths": {
+      "module": ["index.ts"]
+    },
+    "lib": ["es6", "es7", "DOM"]
+  },
+  "files": ["index.ts"],
+  "include": ["src/**/*", "types/**/*"]
+}

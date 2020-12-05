@@ -1,13 +1,32 @@
 {
-  "name": "root",
+  "name": "lerna-quick-start",
+  "description": "(WIP) lerna quick start",
+  "license": "MIT",
   "private": true,
+  "author": "Rain120 <1085131904@qq.com>",
+  "repository": {
+    "git": "https://github.com/Rain120/lerna-quick-start.git"
+  },
+  "maintainers": [
+    {
+      "name": "Rain120",
+      "email": "1085131904@qq.com"
+    }
+  ],
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
-    "bootstrap": "./node_modules/.bin/lerna bootstrap --hoist",
+    "build": "lerna run build --stream",
+    "bootstrap": "lerna bootstrap --hoist",
+    "publish": "lerna publish --force-publish=* --skip-npm --skip-git",
+    "prepublish": "npm run build",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md && git commit -m \"chore(release): update changelog [auto]\"",
+    "cleanup": "lerna run cleanup --stream --parallel",
     "eslint": "eslint --fix --color --ext .ts packages/**",
     "prettier": "prettier --write packages/**/**.ts",
-    "lerna": "./node_modules/.bin/lerna",
-    "lint-staged": "lint-staged"
+    "lint-staged": "lint-staged",
+    "test": "jest"
   },
   "lint-staged": {
     "packages/**/**.{ts}": [
@@ -27,8 +46,14 @@
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
+    "@rollup/plugin-babel": "^5.2.2",
+    "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-typescript": "^8.0.0",
+    "@types/jest": "^26.0.16",
+    "@types/node": "^14.14.10",
     "@typescript-eslint/eslint-plugin": "^4.9.0",
     "@typescript-eslint/parser": "^4.9.0",
+    "commander": "^6.2.0",
     "conventional-changelog-cli": "^2.1.1",
     "eslint": "^7.14.0",
     "eslint-config-standard": "^16.0.2",
@@ -37,12 +62,17 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-promise": "^4.2.1",
     "husky": "^4.3.0",
+    "jest": "^26.6.3",
     "lerna": "^3.22.1",
     "lint-staged": "^10.5.2",
     "prettier": "^2.2.1",
+    "prompts": "^2.4.0",
     "rimraf": "^3.0.2",
-    "rollup": "^2.34.0",
+    "rollup": "^2.34.1",
+    "rollup-plugin-terser": "^7.0.2",
+    "shelljs": "^0.8.4",
     "ts-jest": "^26.4.4",
+    "tslib": "^2.0.3",
     "typescript": "^4.1.2"
   }
 }

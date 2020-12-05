@@ -1,18 +1,33 @@
 {
-    "packages": ["packages/*"],
-    "version": "independent",
-    "useWorkspaces": false,
-    "command": {
-        "publish": {
-            "ignoreChanges": ["**/*.md", "__tests__"]
-        },
-        "run": {
-            "stream": true
-        },
-        "bootstrap": {
-            "ignorePrepublish": true,
-            "hoist": true
-        }
+  "version": "independent",
+  "npmClient": "npm",
+  "useWorkspaces": false,
+  "packages": ["packages/*"],
+  "command": {
+    "publish": {
+      "ignoreChanges": ["**/*.md", "__tests__"],
+      "allowBranch": "master",
+      "conventionalCommits": true
     },
-    "hoist": ["jest", "typescript"]
+    "run": {
+      "stream": true
+    },
+    "bootstrap": {
+      "ignorePrepublish": true,
+      "hoist": true
+    }
+  },
+  "hoist": ["jest", "typescript"],
+  "changelog": {
+    "repo": "rain120/lerna-quick-start",
+    "labels": {
+      "PR: New Feature": ":rocket: New Features",
+      "PR: Breaking Change": ":boom: Breaking Changes",
+      "PR: Bug Fix": ":bug: Bug Fix",
+      "PR: Documentation": ":memo: Documentation",
+      "PR: Internal": ":house: Internal",
+      "PR: Underlying Tools": ":hammer: Underlying Tools"
+    },
+    "cacheDir": ".changelog"
+  }
 }
