@@ -17,6 +17,7 @@
     "packages/*"
   ],
   "scripts": {
+    "add-deps": "node scripts/lerna-add-deps.js",
     "build": "lerna run build --stream",
     "bootstrap": "lerna bootstrap --hoist",
     "publish": "lerna publish --force-publish=* --skip-npm --skip-git",
@@ -31,8 +32,7 @@
   "lint-staged": {
     "packages/**/**.{ts}": [
       "npm run prettier",
-      "npm run eslint",
-      "git add"
+      "npm run eslint"
     ]
   },
   "husky": {
