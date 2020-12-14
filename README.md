@@ -40,7 +40,7 @@ Welcome to the Lerna Quick Start.
 
 `npm run bootstrap`: 安装所有依赖项并链接任何交叉依赖。
 
-`npm run publish`: 发布包
+`npm run publish`: 发布 `lerna` 包
 
 
 ### 👨‍🏭 Author
