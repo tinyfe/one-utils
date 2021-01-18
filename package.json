@@ -1,11 +1,11 @@
 {
-  "name": "lerna-quick-start",
+  "name": "one-utils",
   "description": "(WIP) lerna quick start",
   "license": "MIT",
   "private": true,
   "author": "Rain120 <1085131904@qq.com>",
   "repository": {
-    "git": "https://github.com/Rain120/lerna-quick-start.git"
+    "git": "https://github.com/Rain120/one-utils.git"
   },
   "maintainers": [
     {

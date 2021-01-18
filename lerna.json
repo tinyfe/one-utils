@@ -19,7 +19,7 @@
   },
   "hoist": ["jest", "typescript"],
   "changelog": {
-    "repo": "rain120/lerna-quick-start",
+    "repo": "rain120/one-utils",
     "labels": {
       "PR: New Feature": ":rocket: New Features",
       "PR: Breaking Change": ":boom: Breaking Changes",
