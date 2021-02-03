@@ -1,7 +1,7 @@
 {
-  "name": "module",
+  "name": "color-utils",
   "version": "0.0.1",
-  "description": "lerna get package info by path",
+  "description": "color utils",
   "keywords": [
     "learn",
     "package"
