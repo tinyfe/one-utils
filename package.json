@@ -13,9 +13,14 @@
       "email": "1085131904@qq.com"
     }
   ],
-  "workspaces": [
-    "packages/*"
-  ],
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": [
+      "**"
+    ]
+  },
   "scripts": {
     "add-deps": "node scripts/lerna-add-deps.js",
     "build": "lerna run build --stream",

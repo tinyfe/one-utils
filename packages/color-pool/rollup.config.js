@@ -14,14 +14,14 @@ export default {
       file: pkg.main,
       exports: 'auto',
       // dir: 'lib',
-      // sourcemap: true,
+      sourcemap: true,
     },
     {
       // 将软件包保存为 ES 模块文件
       format: 'es',
       file: pkg.module,
       // dir: 'lib',
-      // sourcemap: true,
+      sourcemap: true,
     },
   ],
   // 维持包文件指定id文件维持外链，不参与打包构建

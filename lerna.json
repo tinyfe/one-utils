@@ -15,6 +15,10 @@
     "bootstrap": {
       "ignorePrepublish": true,
       "hoist": true
+    },
+    "version": {
+      "allowBranch": "master",
+      "ignoreChanges": ["**/*.md", "**/example/**", "**/__tests__/**", "**/.eslintrc.js", "**/tsconfig.json"]
     }
   },
   "hoist": ["jest", "typescript"],
