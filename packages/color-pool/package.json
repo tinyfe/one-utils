@@ -1,7 +1,7 @@
 {
-  "name": "color-utils",
+  "name": "color-pool",
   "version": "0.0.1",
-  "description": "color utils",
+  "description": "color pool",
   "keywords": [
     "learn",
     "package"
