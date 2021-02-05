@@ -1,13 +1,23 @@
 {
-  "name": "color-pool",
-  "version": "0.1.0",
+  "name": "@tinyfe/color-pool",
+  "version": "0.0.1",
   "description": "color pool",
   "keywords": [
-    "learn",
-    "package"
+    "color",
+    "color pool"
   ],
   "author": "Rain120 <1085131904@qq.com>",
-  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tinyfe/one-utils.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tinyfe/one-utils/issues"
+  },
+  "homepage": "https://github.com/tinyfe/one-utils/tree/master/packages/color-pool",
+  "publishConfig": {
+    "access": "public"
+  },
   "license": "MIT",
   "main": "lib/index.js",
   "module": "lib/index.es.js",
@@ -23,15 +33,16 @@
     "lib"
   ],
   "scripts": {
-    "build": "rollup -c --watch",
+    "w:build": "rollup -c --watch",
+    "build": "rollup -c",
     "test": "jest --watch"
   },
   "devDependencies": {
     "@rollup/plugin-babel": "^5.2.2",
     "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-typescript": "^8.0.0",
-    "@types/jest": "^26.0.16",
-    "@types/node": "^14.14.10",
+    "@types/jest": "^26.0.20",
+    "@types/node": "^14.14.25",
     "jest": "^26.6.3",
     "rollup": "^2.34.1",
     "rollup-plugin-terser": "^7.0.2",

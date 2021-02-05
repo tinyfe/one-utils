@@ -2,10 +2,10 @@
  * @Author: Rainy [https://github.com/rain120]
  * @Date: 2021-02-01 21:08:29
  * @LastEditors: Rainy
- * @LastEditTime: 2021-02-02 11:29:26
+ * @LastEditTime: 2021-02-05 11:36:33
  */
 
-export default {
+export const colorPool = {
   aliceblue: '#f0f8ff',
   antiquewhite: '#faebd7',
   aqua: '#0ff',

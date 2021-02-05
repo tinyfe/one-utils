@@ -6,7 +6,7 @@ import pkg from './package.json';
 
 export default {
   inlineDynamicImports: true,
-  input: './index.ts',
+  input: './src/index.ts',
   output: [
     {
       // CommonJS, 适用于 Node 或 Browserify / webpack

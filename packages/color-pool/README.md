@@ -1,11 +1,21 @@
-# `get-pkg-by-path`
+# `@tinyfe/color-pool`
 
-> TODO: description
+The color pool (name to hex).
+
+## Install
+
+```sh
+npm install --save-dev @tinyfe/color-pool
+
+# or
+
+yarn install --save-dev @tinyfe/color-pool
+```
 
 ## Usage
 
-```
-const getPkgByPath = require('get-pkg-by-path');
+```js
+import { colorPool } from '@tinyfe/color-pool';
 
-// TODO: DEMONSTRATE API
+console.log(colorPool['aliceblue']);
 ```
