@@ -88,8 +88,8 @@ function config({ location, pkgJson }) {
             // CommonJS, 适用于 Node 或 Browserify / webpack
             format: 'cjs',
             file: path.join(location, pkgJson.main),
-            exports: 'auto',
-            sourcemap: true,
+            // exports: 'auto',
+            // sourcemap: true,
           },
         ],
         plugins,
