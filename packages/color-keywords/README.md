@@ -1,6 +1,6 @@
 # `@tinyfe/color-keywords`
 
-The color pool (name to hex).
+The color keywords (name to hex).
 
 ## Install
 
@@ -15,7 +15,7 @@ yarn install --save-dev @tinyfe/color-keywords
 ## Usage
 
 ```js
-import namedColor from '@tinyfe/color-keywords';
+import colorName from '@tinyfe/color-keywords';
 
-console.log(namedColor['aliceblue']);
+console.log(colorName['aliceblue']);
 ```
