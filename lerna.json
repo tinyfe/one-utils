@@ -5,9 +5,7 @@
   "command": {
     "publish": {
       "ignoreChanges": ["**/*.md", "__tests__"],
-      "allowBranch": "master",
-      "conventionalCommits": true,
-      "message": "chore(release): publish"
+      "allowBranch": "master"
     },
     "run": {
       "stream": true
