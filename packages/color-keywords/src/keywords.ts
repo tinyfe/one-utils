@@ -1,5 +1,6 @@
 // LINK_TO: https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#color_keywords
 // LINK_TO: https://drafts.csswg.org/css-color/#named-colors
+// LINK_TO: https://www.w3.org/TR/css-color-3/#svg-color
 export const keywords = {
   transparent: 'rgba(0, 0, 0, 0)',
   black: '#000000', // 黑
