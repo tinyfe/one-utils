@@ -22,10 +22,7 @@ jobs:
         run: |
           npm ci
           # npm run build --if-present
-          # npm run deploy
           npm run test
-          npm run docs:build
-          # npm run changelog
 
       # - name: Coveralls Parallel
       #   uses: coverallsapp/github-action@master
@@ -40,10 +37,10 @@ jobs:
       #     github-token: ${{ secrets.ACCESS_TOKEN }}
       #     parallel-finished: true
 
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@master
-        env:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: docs/.vuepress/dist
-          BUILD_SCRIPT: npm run deploy
+      # - name: Deploy
+      #   uses: JamesIves/github-pages-deploy-action@master
+      #   env:
+      #     ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+      #     BRANCH: gh-pages
+      #     FOLDER: docs/.vuepress/dist
+      #     BUILD_SCRIPT: npm run deploy
