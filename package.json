@@ -62,6 +62,7 @@
     "@rollup/plugin-node-resolve": "^11.1.1",
     "@rollup/plugin-replace": "^2.3.4",
     "@rollup/plugin-typescript": "^8.0.0",
+    "@tinyfe/color-keywords": "0.0.3",
     "@types/jest": "^26.0.16",
     "@types/node": "^14.14.10",
     "@typescript-eslint/eslint-plugin": "^4.9.0",
