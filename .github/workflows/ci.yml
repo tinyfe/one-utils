@@ -3,17 +3,16 @@ name: Test, Build and Deploy Docs
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
     branches:
-      - '!master'
+      - '!main'
       - 'dev**'
 
 jobs:
   build-and-deploy:
     name: Test and Deploy Docs
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout Master
         uses: actions/checkout@master

@@ -22,7 +22,7 @@ console.log({ BUILD_PKG, BUILD });
 
 let pkgs = [];
 
-const paths = ['packages', 'plugins'].filter(_ => BUILD.includes(ALL) || BUILD.includes(_));
+const paths = ['packages'].filter(_ => BUILD.includes(ALL) || BUILD.includes(_));
 
 paths.forEach(pkgPath => {
   const pkgsRoot = path.join(__dirname, pkgPath);
