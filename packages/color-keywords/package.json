@@ -1,5 +1,5 @@
 {
-  "name": "@one-utils/color-keywords",
+  "name": "@tinyfe/color-keywords",
   "version": "0.0.1",
   "license": "MIT",
   "keywords": [
@@ -39,5 +39,6 @@
   "devDependencies": {
     "@types/jest": "^26.0.20",
     "@types/node": "^14.14.25"
-  }
+  },
+  "gitHead": "87b0804d1b9ec7277601fa49b2d7a603ead2441b"
 }
