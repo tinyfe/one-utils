@@ -1,21 +1,21 @@
-# `@tinyfe/color-keywords`
+# `@one-utils/color-keywords`
 
 The color keywords (name to hex).
 
 ## Install
 
 ```sh
-npm install --save-dev @tinyfe/color-keywords
+npm install --save-dev @one-utils/color-keywords
 
 # or
 
-yarn install --save-dev @tinyfe/color-keywords
+yarn install --save-dev @one-utils/color-keywords
 ```
 
 ## Usage
 
 ```js
-import colorName from '@tinyfe/color-keywords';
+import colorName from '@one-utils/color-keywords';
 
 console.log(colorName['aliceblue']);
 ```
