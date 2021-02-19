@@ -7,6 +7,7 @@ import replace from '@rollup/plugin-replace';
 import commonjs from '@rollup/plugin-commonjs';
 import babel from '@rollup/plugin-babel';
 import camelCase from 'camelcase';
+import typescript from 'rollup-plugin-typescript2';
 
 const ALL = '*';
 
@@ -68,10 +69,14 @@ function config({ location, pkgJson }) {
     }),
   );
 
+  const tsPlugin = typescript({
+    tsconfig: path.join(location, 'tsconfig.json'),
+  });
+
   return {
     umd: compress => {
       let file = path.join(location, 'lib', 'browser.js');
-      const plugins = [...commonPlugins];
+      const plugins = [...commonPlugins, tsPlugin];
       if (compress) {
         plugins.push(terser());
         file = path.join(location, 'lib', 'browser.min.js');
@@ -90,6 +95,7 @@ function config({ location, pkgJson }) {
             file,
             name: globalName,
             format: 'umd',
+            exports: 'named',
             sourcemap: false,
             globals,
           },
@@ -98,7 +104,7 @@ function config({ location, pkgJson }) {
       };
     },
     module: () => {
-      const plugins = [...commonPlugins];
+      const plugins = [...commonPlugins, tsPlugin];
       return {
         inlineDynamicImports: true,
         input,

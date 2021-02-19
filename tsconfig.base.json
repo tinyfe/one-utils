@@ -1,13 +1,14 @@
 {
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
-    "declaration": false,
+    "target": "ESNEXT",
+    "module": "ESNext",
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
     "declarationMap": false,
     "downlevelIteration": true,
     "inlineSources": true,
     "lib": ["dom", "es2015", "es2017", "es2019"],
-    "module": "commonjs",
     "moduleResolution": "node",
     "noEmit": true,
     "noEmitOnError": false,
@@ -18,7 +19,6 @@
     "skipLibCheck": true,
     "strict": true,
     "sourceMap": true,
-    "target": "es2017",
     "typeRoots": ["node_modules/@types"]
   },
   "exclude": ["node_modules", "__tests__", "src/types", "test", "build"],
