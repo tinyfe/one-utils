@@ -22,7 +22,7 @@
   "main": "lib/index.js",
   "module": "lib/index.es.js",
   "browser": "lib/browser.js",
-  "typings": "typings/index.d.ts",
+  "typings": "lib/index.d.ts",
   "engines": {
     "node": ">=8.0.0"
   },
@@ -39,6 +39,5 @@
   "devDependencies": {
     "@types/jest": "^26.0.20",
     "@types/node": "^14.14.25"
-  },
-  "gitHead": "87b0804d1b9ec7277601fa49b2d7a603ead2441b"
+  }
 }
