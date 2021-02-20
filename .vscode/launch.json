@@ -10,7 +10,11 @@
       "name": "启动程序",
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}/packages/module/lib/index.js",
-      "outFiles": ["${workspaceFolder}/**/*.js"]
+      "outFiles": ["${workspaceFolder}/**/*.js"],
+      "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/babel-node",
+      "env": {
+        "BABEL_ENV": "debug"
+      }
     }
   ]
 }

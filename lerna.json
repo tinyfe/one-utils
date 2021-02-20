@@ -4,6 +4,7 @@
   "packages": ["packages/*"],
   "command": {
     "publish": {
+      "skipGit": true,
       "ignoreChanges": ["**/*.md", "__tests__"],
       "allowBranch": "main",
       "message": "chore(release): publish"
@@ -12,6 +13,7 @@
       "stream": true
     },
     "bootstrap": {
+      "skipGit": true,
       "ignorePrepublish": true,
       "hoist": true,
       "ignore": "component-*",

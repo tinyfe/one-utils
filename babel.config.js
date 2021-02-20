@@ -11,4 +11,10 @@ module.exports = {
     '@babel/preset-typescript',
   ],
   plugins: [],
+  env: {
+    debug: {
+      sourceMaps: 'inline',
+      retainLines: true,
+    },
+  },
 };

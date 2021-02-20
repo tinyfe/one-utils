@@ -1,16 +1,7 @@
-// LINK_TO(EN): https://en.wikipedia.org/wiki/HSL_and_HSV
-// LINK_TO(CN): https://zh.wikipedia.org/wiki/HSL%E5%92%8CHSV%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4
-// HSV
-// 色相 (Hue): 色彩的基本属性
-// 饱和度 (Saturation): 指色彩的纯度，越高色彩越纯，低则逐渐变灰，取0-100%的数值。
-// 亮度 (Value): 取0-100%的数值
+import { ColorHSV, ColorRGB } from 'typings';
+import { getHue } from './hsl';
+import { mathMax, mathMin, mathRound, setValueRange } from './utils';
 
-/**
- * Base hues
- * LINK_TO: http://dev.w3.org/csswg/css-color/#typedef-named-hue
- * LINK_TO: https://en.wikipedia.org/wiki/Hue
- * LINK_TO: https://zh.wikipedia.org/zh-cn/%E8%89%B2%E7%9B%B8
- */
 export const baseHues = {
   // name: hug, // color_code color_name luminance(亮度/明度)
   red: 0, //	#FF0000	red	30%
@@ -38,3 +29,75 @@ export const baseHues = {
   scarlet: 330, //	#FF0080	ruby red, crimson	36%
   'scarlet-red': 345, //	#FF0040	carmine 33%
 };
+
+/**
+ * @description rgb to hsv
+ * @param r
+ * @param g
+ * @param b
+ */
+export function rgbToHsv(r: number, g: number, b: number): ColorHSV {
+  r = setValueRange(r, 255);
+  g = setValueRange(g, 255);
+  b = setValueRange(b, 255);
+
+  const max = mathMax(r, g, b);
+  const min = mathMin(r, g, b);
+
+  // const h = getHueFromRGB(r, g, b);
+  const h = getHue(r, g, b, max, min);
+  const s = max === 0 ? 0 : 1 - min / max;
+  const v = max;
+
+  return { h, s, v };
+}
+
+/**
+ * @description hsv to rgb
+ * @param h
+ * @param s
+ * @param v
+ */
+export function hsvToRgb(h: number, s: number, v: number): ColorRGB {
+  h = mathRound(setValueRange(h, 360) * 6);
+  s = setValueRange(s, 100);
+  v = setValueRange(v, 100);
+
+  const hi = h % 6;
+  const f = h / 6 - hi;
+  const p = v * (1 - s);
+  const q = v * (1 - f * s);
+  const t = v * (1 - (1 - f) * s);
+
+  const r = [v, q, p, p, t, v][hi];
+  const g = [t, v, v, q, p, p][hi];
+  const b = [p, p, t, v, v, q][hi];
+
+  // let rgb = { r: 0, g: 0, b: 0 };
+  // switch (hi) {
+  //   case 0:
+  //     rgb = { r: v, g: t, b: p };
+  //     break;
+  //   case 1:
+  //     rgb = { r: q, g: v, b: p };
+  //     break;
+  //   case 2:
+  //     rgb = { r: p, g: v, b: t };
+  //     break;
+  //   case 3:
+  //     rgb = { r: p, g: q, b: v };
+  //     break;
+  //   case 4:
+  //     rgb = { r: t, g: p, b: v };
+  //     break;
+  //   case 5:
+  //     rgb = { r: v, g: p, b: q };
+  //     break;
+  // }
+
+  return {
+    r: r * 255,
+    g: g * 255,
+    b: b * 255,
+  };
+}

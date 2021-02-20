@@ -1,6 +1,18 @@
+import { ColorRGB, ColorType, IAnyObject, TypeColor } from 'typings';
 import namedColor from '@tinyfe/color-keywords';
-import { convertHexToDecimal, mathMax, mathMin, parseIntFromHex, setRangeForRgb } from './utils';
+import {
+  convertHexToDecimal,
+  convertToPercentage,
+  mathMax,
+  mathMin,
+  parseIntFromHex,
+  setAlpha,
+  setValueRange,
+} from './utils';
 import { isValidCSSUnit, matchPattern } from './valid-color';
+import { hsvToRgb } from './hsv';
+import { hslToRgb } from './hsl';
+import { rgbToRgb } from './rgb';
 // Given a string or object, convert that input to RGB
 // Possible string inputs:
 //
@@ -20,32 +32,41 @@ import { isValidCSSUnit, matchPattern } from './valid-color';
 export function parseToRgb(color: TypeColor) {
   let rgb = { r: 0, g: 0, b: 0 };
   let a = 1;
-  let s = '';
-  let v = '';
-  let l = '';
+  let s: string | number = 0;
+  let v: string | number = 0;
+  let l: string | number = 0;
   let ok = false;
-  let format = '';
+  let format: ColorType = 'name';
 
   if (typeof color === 'string') {
-    color = parseStringToRgb(color) as TypeColor;
+    color = parseStringToRgb(color) as any;
   }
 
   if (typeof color === 'object') {
-    if (isValidCSSUnit(color.r!) && isValidCSSUnit(color.g!) && isValidCSSUnit(color.b!)) {
+    if (isValidCSSUnit(color.r) && isValidCSSUnit(color.g) && isValidCSSUnit(color.b)) {
       rgb = rgbToRgb(color.r, color.g, color.b);
       ok = true;
-      format = 'rgb';
-    } else if (isValidCSSUnit(color.h!) && isValidCSSUnit(color.s!) && isValidCSSUnit(color.v!)) {
+      format = /%$/.test(color.r.toString()) ? 'prgb' : 'rgb';
+    } else if (isValidCSSUnit(color.h) && isValidCSSUnit(color.s) && isValidCSSUnit(color.v)) {
+      s = convertToPercentage(color.s);
+      v = convertToPercentage(color.v);
+      rgb = hsvToRgb(color.h, color.s, color.v);
       ok = true;
       format = 'hsv';
-    } else if (isValidCSSUnit(color.h!) && isValidCSSUnit(color.s!) && isValidCSSUnit(color.l!)) {
+    } else if (isValidCSSUnit(color.h) && isValidCSSUnit(color.s) && isValidCSSUnit(color.l)) {
+      s = convertToPercentage(color.s);
+      l = convertToPercentage(color.l);
+      rgb = hslToRgb(color.h, color.s, color.l);
       ok = true;
       format = 'hsl';
     }
+
     if (color.hasOwnProperty('a')) {
       a = color.a!;
     }
   }
+
+  a = setAlpha(a);
 
   return {
     ok,
@@ -57,20 +78,12 @@ export function parseToRgb(color: TypeColor) {
   };
 }
 
-function rgbToRgb(r: number, g: number, b: number): { r: number; g: number; b: number } {
-  return {
-    r: setRangeForRgb(r, 255),
-    g: setRangeForRgb(g, 255),
-    b: setRangeForRgb(b, 255),
-  };
-}
-
 export function parseStringToRgb(color: string) {
   color = color.trim().toLowerCase();
   let isColorNamed = false;
 
-  if (namedColor[color]) {
-    color = namedColor[color];
+  if ((namedColor as any)[color]) {
+    color = (namedColor as any)[color];
     isColorNamed = true;
   } else if (color === 'transparent') {
     return {
@@ -167,17 +180,14 @@ export function parseStringToRgb(color: string) {
   return false;
 }
 
-/**
- * @description rgb(255, 255, 255) => #ffffff
- * @param rgb
- */
-function rgb2hex(sRGB: string): string {
-  return '';
-}
-/*
- * rgba -> { hex, hexa }
- * (255, 0 , 255, 1) -> { hex: '#ff00ff', hexa: '#ff00ffff' }
- */
-function rgba2hex(color: string, hasAlpha: boolean = false): string {
-  return '';
+export { namedColor };
+
+export function flip(obj: IAnyObject): IAnyObject {
+  const flipped: IAnyObject = {};
+
+  Object.keys(obj).forEach(key => {
+    flipped[obj[key]] = key;
+  });
+
+  return flipped;
 }

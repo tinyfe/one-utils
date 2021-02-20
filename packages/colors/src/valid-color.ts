@@ -42,14 +42,18 @@ export const matchPattern: Patterns = {
   hsla: new RegExp('hsla' + PERMISSIVE_MATCH4),
   hsv: new RegExp('hsv' + PERMISSIVE_MATCH3),
   hsva: new RegExp('hsva' + PERMISSIVE_MATCH4),
-  hex3: /^[\dA-F]{3}$/i,
-  hex4: /^[\dA-F]{4}$/i,
-  hex6: /^[\dA-F]{6}$/i,
-  hex8: /^[\dA-F]{8}$/i,
+  hex3: /^#?([0-9a-fA-F]{1})([0-9a-fA-F]{1})([0-9a-fA-F]{1})$/,
+  hex6: /^#?([0-9a-fA-F]{2})([0-9a-fA-F]{2})([0-9a-fA-F]{2})$/,
+  hex4: /^#?([0-9a-fA-F]{1})([0-9a-fA-F]{1})([0-9a-fA-F]{1})([0-9a-fA-F]{1})$/,
+  hex8: /^#?([0-9a-fA-F]{2})([0-9a-fA-F]{2})([0-9a-fA-F]{2})([0-9a-fA-F]{2})$/,
 };
 
 export function isHex(color: string) {
-  return matchPattern[`hex${color.length}`].test(color);
+  const length = color.slice(1).length;
+  if (![3, 6, 4, 8].includes(length)) {
+    return false;
+  }
+  return matchPattern[`hex${length}`].test(color);
 }
 
 // LINK_TO: https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#rgb_colors
@@ -86,6 +90,6 @@ export default function isColor(color: string) {
   );
 }
 
-export function isValidCSSUnit(unit: string | number) {
+export function isValidCSSUnit(unit?: any) {
   return !!matchPattern.CSS_UNIT.exec(unit.toString());
 }
