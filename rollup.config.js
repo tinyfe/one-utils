@@ -70,6 +70,8 @@ function config({ location, pkgJson }) {
   );
 
   const tsPlugin = typescript({
+    abortOnError: false,
+    clean: true,
     tsconfig: path.join(location, 'tsconfig.json'),
   });
 
