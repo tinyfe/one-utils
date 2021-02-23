@@ -1,14 +1,6 @@
-import { ColorRGB, ColorType, IAnyObject, TypeColor } from 'typings';
+import { ColorType, IAnyObject, TypeColor } from 'typings';
 import namedColor from '@tinyfe/color-keywords';
-import {
-  convertHexToDecimal,
-  convertToPercentage,
-  mathMax,
-  mathMin,
-  parseIntFromHex,
-  setAlpha,
-  setValueRange,
-} from './utils';
+import { convertHexToDecimal, convertToPercentage, mathMax, mathMin, parseIntFromHex, setAlpha } from './utils';
 import { isValidCSSUnit, matchPattern } from './valid-color';
 import { hsvToRgb } from './hsv';
 import { hslToRgb } from './hsl';
@@ -32,14 +24,14 @@ import { rgbToRgb } from './rgb';
 export function parseToRgb(color: TypeColor) {
   let rgb = { r: 0, g: 0, b: 0 };
   let a = 1;
-  let s: string | number = 0;
-  let v: string | number = 0;
-  let l: string | number = 0;
+  let s: number = 0;
+  let v: number = 0;
+  let l: number = 0;
   let ok = false;
   let format: ColorType = 'name';
 
   if (typeof color === 'string') {
-    color = parseStringToRgb(color) as any;
+    color = parseStringToValue(color) as any;
   }
 
   if (typeof color === 'object') {
@@ -50,13 +42,13 @@ export function parseToRgb(color: TypeColor) {
     } else if (isValidCSSUnit(color.h) && isValidCSSUnit(color.s) && isValidCSSUnit(color.v)) {
       s = convertToPercentage(color.s);
       v = convertToPercentage(color.v);
-      rgb = hsvToRgb(color.h, color.s, color.v);
+      rgb = hsvToRgb(color.h, s, v);
       ok = true;
       format = 'hsv';
     } else if (isValidCSSUnit(color.h) && isValidCSSUnit(color.s) && isValidCSSUnit(color.l)) {
       s = convertToPercentage(color.s);
       l = convertToPercentage(color.l);
-      rgb = hslToRgb(color.h, color.s, color.l);
+      rgb = hslToRgb(color.h, s, l);
       ok = true;
       format = 'hsl';
     }
@@ -78,7 +70,7 @@ export function parseToRgb(color: TypeColor) {
   };
 }
 
-export function parseStringToRgb(color: string) {
+export function parseStringToValue(color: string) {
   color = color.trim().toLowerCase();
   let isColorNamed = false;
 

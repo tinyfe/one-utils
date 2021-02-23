@@ -27,9 +27,9 @@ export function isPercentage(n: string | number) {
   return typeof n === 'string' && n.includes('%');
 }
 
-export function convertToPercentage(value: string | number) {
+export function convertToPercentage(value: number) {
   if (+value <= 1) {
-    value = +value * 100 + '%';
+    value = +value * 100; // + '%';
   }
 
   return value;

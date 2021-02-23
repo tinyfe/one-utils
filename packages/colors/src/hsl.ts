@@ -31,7 +31,7 @@ export function rgbToHsl(r: number, g: number, b: number): ColorHSL {
  * @param lightness
  * @param delta max - min
  */
-export function getSaturation(max: number, min: number, lightness?: number) {
+export function getSaturation(max: number, min: number, lightness?: number): number {
   lightness = lightness || (max + min) / 2;
   const delta = max - min;
   let s = 0;
@@ -63,7 +63,7 @@ export function getHueFromRGB(r: number, g: number, b: number): number {
  * @param rgb
  * @return [0, 1], 通过[0, 1] * 360 -> [0°, 360°]
  */
-export function getHue(r: number, g: number, b: number, max: number, min: number) {
+export function getHue(r: number, g: number, b: number, max: number, min: number): number {
   const delta = max - min;
   let h = 0;
   if (max !== min) {
@@ -91,13 +91,14 @@ export function getHue(r: number, g: number, b: number, max: number, min: number
  * @param sat
  * @param light
  */
-export function hslToRgb(hue: number, sat: number, light: number) {
+export function hslToRgb(hue: number, sat: number, light: number): ColorRGB {
   let t2 = light <= 0.5 ? light * (sat + 1) : light + sat - light * sat;
   let t1 = light * 2 - t2;
-  let r = hueToRgb(t1, t2, hue + 2);
-  let g = hueToRgb(t1, t2, hue);
-  let b = hueToRgb(t1, t2, hue - 2);
-  return { r, g, b };
+  return {
+    r: hueToRgb(t1, t2, hue + 2),
+    g: hueToRgb(t1, t2, hue),
+    b: hueToRgb(t1, t2, hue - 2),
+  };
 }
 
 /**
@@ -106,7 +107,7 @@ export function hslToRgb(hue: number, sat: number, light: number) {
  * @param t2
  * @param hue
  */
-export function hueToRgb(t1: number, t2: number, hue: number) {
+export function hueToRgb(t1: number, t2: number, hue: number): number {
   if (hue < 0) {
     hue += 6;
   }
