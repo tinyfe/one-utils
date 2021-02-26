@@ -8,6 +8,8 @@ import commonjs from '@rollup/plugin-commonjs';
 import babel from '@rollup/plugin-babel';
 import camelCase from 'camelcase';
 import typescript from 'rollup-plugin-typescript2';
+import json from 'rollup-plugin-json';
+import builtins from 'rollup-plugin-node-builtins';
 
 const ALL = '*';
 
@@ -45,13 +47,17 @@ paths.forEach(pkgPath => {
 const extensions = ['.js', '.jsx', '.ts', '.tsx'];
 
 const commonPlugins = [
+  commonjs(),
+  // Convert JSON imports to ES6 modules.
+  json(),
+  // Register Node.js builtins for browserify compatibility.
+  builtins(),
   resolve({ extensions, preferBuiltins: true }),
   babel({
     extensions,
     babelHelpers: 'bundled',
     exclude: ['node_modules/**', 'packages/**/node_modules/**'],
   }),
-  commonjs(),
 ];
 
 function config({ location, pkgJson }) {
@@ -63,6 +69,7 @@ function config({ location, pkgJson }) {
   external.forEach(pkgName => {
     globals[pkgName] = toGlobalName(pkgName);
   });
+
   commonPlugins.push(
     replace({
       __buildVersion: pkgJson.version,
@@ -70,15 +77,19 @@ function config({ location, pkgJson }) {
   );
 
   const tsPlugin = typescript({
-    abortOnError: false,
+    // abortOnError: false,
     clean: true,
+    include: [path.join(location, 'src/**/*.ts')],
+    rollupCommonJSResolveHack: true,
     tsconfig: path.join(location, 'tsconfig.json'),
+    declarationDir: path.join(location, 'lib/@types'),
+    useTsconfigDeclarationDir: true,
   });
+  const plugins = [tsPlugin, ...commonPlugins];
 
   return {
     umd: compress => {
       let file = path.join(location, 'lib', 'browser.js');
-      const plugins = [...commonPlugins, tsPlugin];
       if (compress) {
         plugins.push(terser());
         file = path.join(location, 'lib', 'browser.min.js');
@@ -106,7 +117,6 @@ function config({ location, pkgJson }) {
       };
     },
     module: () => {
-      const plugins = [...commonPlugins, tsPlugin];
       return {
         inlineDynamicImports: true,
         input,
