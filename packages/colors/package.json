@@ -1,13 +1,13 @@
 {
   "name": "@tinyfe/colors",
-  "version": "0.0.2",
+  "version": "0.0.1",
   "description": "the utils for color",
   "keywords": [
     "color",
     "colors",
     "color-utils"
   ],
-  "author": "Rain120 <chao1202016@outlook.com>",
+  "author": "Rain120 <1085131904@qq.com>",
   "homepage": "https://github.com/tinyfe/one-utils#readme",
   "license": "MIT",
   "main": "lib/index.js",
@@ -40,5 +40,6 @@
   },
   "dependencies": {
     "@tinyfe/color-keywords": "0.0.2"
-  }
+  },
+  "gitHead": "3f07b5d0287d1247dd0d5bf93f71c17c3a70381b"
 }
