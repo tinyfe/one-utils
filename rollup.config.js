@@ -21,6 +21,8 @@ function toGlobalName(pkgName) {
 BUILD_PKG = BUILD_PKG.split(';').filter(Boolean);
 BUILD = BUILD.split(';').filter(Boolean);
 
+const FILTER_PATH = ['template'];
+
 console.log({ BUILD_PKG, BUILD });
 
 let pkgs = [];
@@ -32,6 +34,7 @@ paths.forEach(pkgPath => {
   const currentFilePath = fs.readdirSync(pkgsRoot);
   if (currentFilePath.length) {
     const filePath = currentFilePath
+      .filter(dir => !FILTER_PATH.includes(dir))
       .filter(dir => BUILD_PKG.includes(ALL) || BUILD_PKG.includes(dir))
       .map(dir => path.join(pkgsRoot, dir))
       .map(location => {
