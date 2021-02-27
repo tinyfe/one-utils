@@ -1,6 +1,6 @@
 'use strict';
 
-import awesomeColor, { isColor, isHex, isRgb, isRgba, isHsl, isHsla, isHsv, isHsva } from '../src/';
+import awesomeColor, { isColor, isHex, isRgb, isRgba, isHsl, isHsla, isHsv, isHsva } from '../src';
 
 describe('@tinyfe/colors', () => {
   const rain120 = awesomeColor('#rain120');
