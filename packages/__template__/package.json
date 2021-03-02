@@ -20,9 +20,6 @@
   "files": [
     "lib"
   ],
-  "publishConfig": {
-    "private": "restricted"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tinyfe/one-utils.git"
