@@ -1,5 +1,6 @@
 {
   "name": "template",
+  "private": true,
   "version": "0.0.1",
   "description": "parse unit",
   "keywords": [
@@ -40,5 +41,5 @@
   "dependencies": {
     "@tinyfe/color-keywords": "0.0.2"
   },
-  "gitHead": "3f07b5d0287d1247dd0d5bf93f71c17c3a70381b"
+  "gitHead": "a3bd6d8f25ebe1ae44763b6887c07296248f2e64"
 }

@@ -21,7 +21,7 @@ function toGlobalName(pkgName) {
 BUILD_PKG = BUILD_PKG.split(';').filter(Boolean);
 BUILD = BUILD.split(';').filter(Boolean);
 
-const FILTER_PATH = ['template'];
+const FILTER_PATH = ['__template__'];
 
 console.log({ BUILD_PKG, BUILD });
 
