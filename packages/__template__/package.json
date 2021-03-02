@@ -1,6 +1,5 @@
 {
   "name": "template",
-  "private": true,
   "version": "0.0.2",
   "description": "parse unit",
   "keywords": [
@@ -22,7 +21,7 @@
     "lib"
   ],
   "publishConfig": {
-    "access": "public"
+    "private": "restricted"
   },
   "repository": {
     "type": "git",
