@@ -3,7 +3,8 @@
   "compilerOptions": {
     "baseUrl": "./",
     // "outDir": "./lib",
-    "declarationDir": "./lib/@types",
+    // "declaration": true,
+    // "declarationDir": "./lib/@types",
     "typeRoots": ["./typings/**/**", "./node_modules/@types"],
     "paths": {
       "src": ["./src"]

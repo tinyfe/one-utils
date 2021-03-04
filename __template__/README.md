@@ -1,11 +1,11 @@
-# `template`
+# `name`
 
 > TODO: description
 
 ## Usage
 
 ```
-const template = require('template');
+import name from 'name';
 
 // TODO: DEMONSTRATE API
 ```
