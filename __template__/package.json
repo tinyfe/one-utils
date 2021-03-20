@@ -1,9 +1,9 @@
 {
-"name": "@tinyfe/{{name}}",
-"version": "0.0.1",
-"description": "{{description}}",
-"keywords": [],
-"author": "Rain120 <1085131904@qq.com>",
+  "name": "@tinyfe/{{name}}",
+  "version": "0.0.1",
+  "description": "{{description}}",
+  "keywords": [],
+  "author": "Rain120 <1085131904@qq.com>",
   "homepage": "https://github.com/tinyfe/one-utils#readme",
   "license": "MIT",
   "main": "lib/index.js",
@@ -11,29 +11,29 @@
   "browser": "lib/browser.js",
   "typings": "lib/@types/index.d.ts",
   "directories": {
-  "lib": "lib",
-  "test": "__tests__"
+    "lib": "lib",
+    "test": "__tests__"
   },
   "files": [
-  "lib"
+    "lib"
   ],
   "publishConfig": {
-  "assess": "public"
+    "assess": "public"
   },
   "repository": {
-  "type": "git",
-  "url": "git+https://github.com/tinyfe/one-utils.git"
+    "type": "git",
+    "url": "git+https://github.com/tinyfe/one-utils.git"
   },
   "bugs": {
-  "url": "https://github.com/tinyfe/one-utils/issues"
+    "url": "https://github.com/tinyfe/one-utils/issues"
   },
   "scripts": {
-  "test": "jest --watch"
+    "test": "jest --watch"
   },
   "devDependencies": {
-  "@types/jest": "^26.0.20",
-  "@types/node": "^14.14.25"
+    "@types/jest": "^26.0.20",
+    "@types/node": "^14.14.25"
   },
   "dependencies": {},
   "gitHead": "a3bd6d8f25ebe1ae44763b6887c07296248f2e64"
-  }
+}
