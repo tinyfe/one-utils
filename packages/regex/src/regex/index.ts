@@ -16,6 +16,7 @@ export {
 
 export {
   dateTime as dateTimeRegex,
+  date as dateRegex,
   unixTime as unixTimeRegex,
   hourClock12 as hourClock12Regex,
   hourClock24 as hourClock24Regex,
