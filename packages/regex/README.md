@@ -5,7 +5,7 @@
 ## Usage
 
 ```js
-- import { testRegex, phoneRegex } from '@tinyfe/regex'
+import { testRegex, phoneRegex } from '@tinyfe/regex';
 
 testRegex(phoneRegex, '13456789527'); // true
 ```
