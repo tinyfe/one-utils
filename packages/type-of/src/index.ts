@@ -12,7 +12,7 @@ class TypeOf<T = any> {
     };
   }
 
-  of(value: any) {
+  of(value: any = this.value) {
     if (value === null || value === undefined) {
       return value;
     }
@@ -21,15 +21,18 @@ class TypeOf<T = any> {
   }
 
   is(type: string) {
-    const test = this.of(type) === String ? this.getTypeString : this.of;
-    return test(this.value) === type;
+    if (this.of(type) === String) {
+      return this.getTypeString(this.value) === type;
+    } else {
+      return this.of(this.value) === type;
+    }
   }
 
   include(type: string[]) {
     return type.some(_ => this.is(_));
   }
 
-  getTypeString(value: any): string {
+  getTypeString(value: any = this.value): string {
     const type = Object.prototype.toString.call(value).slice(8, -1);
 
     if (value === null || value === undefined) {
