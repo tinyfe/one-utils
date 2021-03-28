@@ -9,7 +9,7 @@
     "paths": {
       "src": ["./src"]
     },
-    "lib": ["es6", "es7", "DOM"]
+    "lib": ["ES6", "ES7", "ES2016", "ES2017", "ES2018", "ESNext", "DOM"]
   },
   "files": ["src/index.ts"],
   "include": ["src/**/*", "typings/**/*"]
