@@ -1,6 +1,6 @@
 {
   "name": "@tinyfe/classnames",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "classnames",
   "keywords": [
     "classname",
@@ -39,6 +39,5 @@
     "@types/jest": "^26.0.20",
     "@types/node": "^14.14.25"
   },
-  "dependencies": {},
   "gitHead": "a3bd6d8f25ebe1ae44763b6887c07296248f2e64"
 }
