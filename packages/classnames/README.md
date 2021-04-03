@@ -1,6 +1,6 @@
 # @tinyfe/classnames
 
-> TODO: description
+> The useful utility for making scoped classname.
 
 ## Usage
 
