@@ -11,7 +11,7 @@ import {
   underscore,
 } from '../src';
 
-describe('@tinyfe/naming-convert', () => {
+describe('@tinyfe/naming-transform', () => {
   test('test style', () => {
     expect(style('userName')).toBe('camel');
     expect(style('Username')).toBe('capital');

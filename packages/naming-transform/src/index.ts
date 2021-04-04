@@ -27,7 +27,7 @@ export const style = (input: string) => {
   return '';
 };
 
-function convert(target: string, input: string, options: Options): string {
+function transform(target: string, input: string, options: Options): string {
   const instance = instances[target];
   if (!target || !instance) {
     return '';
@@ -37,25 +37,25 @@ function convert(target: string, input: string, options: Options): string {
 }
 
 export const camel = (input: string, options: Options = {}) =>
-  convert('camel', input, options);
+  transform('camel', input, options);
 
 export const capital = (input: string, options: Options = {}) =>
-  convert('capital', input, options);
+  transform('capital', input, options);
 
 export const pascal = (input: string, options: Options = {}) =>
-  convert('pascal', input, options);
+  transform('pascal', input, options);
 
 export const kebab = (input: string, options: Options = {}) =>
-  convert('kebab', input, options);
+  transform('kebab', input, options);
 
 export const constant = (input: string, options: Options = {}) =>
-  convert('constant', input, options);
+  transform('constant', input, options);
 
 export const snake = (input: string, options: Options = {}) =>
-  convert('snake', input, options);
+  transform('snake', input, options);
 
 export const underscore = (input: string, options: Options = {}) =>
-  convert('underscore', input, options);
+  transform('underscore', input, options);
 
 export default {
   style,

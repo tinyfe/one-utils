@@ -1,11 +1,11 @@
-# `@tinyfe/naming-convert`
+# `@tinyfe/naming-transform`
 
 > Converting to different kind of naming style
 
 ## Usage
 
 ```
-import {} from '@tinyfe/naming-convert';
+import {} from '@tinyfe/naming-transform';
 
 ```
 

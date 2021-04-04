@@ -1,5 +1,5 @@
 {
-  "name": "@tinyfe/naming-convert",
+  "name": "@tinyfe/naming-transform",
   "version": "0.0.1",
   "description": "Converting to different kind of naming style",
   "keywords": [
