@@ -1,24 +1,25 @@
 // LINK_TO: https://en.wikipedia.org/wiki/Letter_case#Special_case_styles
 
 import { lowerCase } from '../utils/lower-case';
+import { upperCaseFirst } from '../utils/upper-case-first';
 import { baseCase } from '../base-case';
 
-class Kebab implements NamingAtom {
+class Capital implements NamingAtom {
   test(input: string) {
-    return /^[0-9a-z]+(-[0-9a-z]+)+$/.test(input);
+    return /^([A-Z]+)([a-z]+)$/.test(input);
   }
 
   transform(input: string): string {
-    return lowerCase(input);
+    return upperCaseFirst(lowerCase(input));
   }
 
-  kebab(input: string, options: Options = {}): string {
+  capital(input: string, options: Options = {}): string {
     return baseCase(input, {
-      delimiter: '-',
+      delimiter: ' ',
       transform: this.transform,
       ...options,
     });
   }
 }
 
-export default Kebab;
+export default Capital;
