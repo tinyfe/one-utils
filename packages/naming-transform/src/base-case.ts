@@ -20,9 +20,9 @@ export function replace(
 
 export function baseCase(input: string, options: Options = {}): string {
   const {
-    // 用于分割成词段的RegExp
+    // 用于分割成词段的 RegExp
     splitRegexp = DEFAULT_SPLIT_REGEXP,
-    // 用于删除无关字符的RegExp
+    // 用于删除无关字符的 RegExp
     stripRegexp = DEFAULT_STRIP_REGEXP,
     // 转换器
     transform = lowerCase,

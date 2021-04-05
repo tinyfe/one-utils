@@ -1,12 +1,10 @@
-// LINK_TO: https://en.wikipedia.org/wiki/Letter_case#Special_case_styles
-
 import { lowerCase } from '../utils/lower-case';
 import { upperCaseFirst } from '../utils/upper-case-first';
 import { baseCase } from '../base-case';
 
 class Capital implements NamingAtom {
   test(input: string) {
-    return /^([A-Z]+)([a-z]+)$/.test(input);
+    return false;
   }
 
   transform(input: string): string {
