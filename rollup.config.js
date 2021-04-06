@@ -27,7 +27,9 @@ console.log({ BUILD_PKG, BUILD });
 
 let pkgs = [];
 
-const paths = ['packages'].filter(_ => BUILD.includes(ALL) || BUILD.includes(_));
+const paths = ['packages'].filter(
+  _ => BUILD.includes(ALL) || BUILD.includes(_),
+);
 
 paths.forEach(pkgPath => {
   const pkgsRoot = path.join(__dirname, pkgPath);
@@ -75,6 +77,7 @@ function config({ location, pkgJson }) {
 
   commonPlugins.push(
     replace({
+      preventAssignment: true,
       __buildVersion: pkgJson.version,
     }),
   );
@@ -146,7 +149,12 @@ function config({ location, pkgJson }) {
   };
 }
 
-async function makeRollupConfig({ type, compress = true, visualizer = true, ..._ }) {
+async function makeRollupConfig({
+  type,
+  compress = true,
+  visualizer = true,
+  ..._
+}) {
   return config({ ..._ })[type](compress, visualizer);
 }
 
