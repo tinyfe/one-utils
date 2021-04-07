@@ -1,17 +1,34 @@
 'use strict';
 
-import TypeOf from '../src';
+import typeOf, { includes, of, is, getTypeString, $BUILD_IN } from '../src';
 
-const typeOf = new TypeOf({});
+const input = typeOf({});
 
 describe('@tinyfe/name', () => {
-  test('test', () => {
-    expect(typeOf.type()).toBe('Object');
-    expect(typeOf.include(['Array', 'String'])).toBe(false);
-    expect(typeOf.of()).toBe({}.constructor);
-    expect(typeOf.of([])).toBe([].constructor);
-    expect(typeOf.is('Object')).toBe(true);
-    expect(typeOf.getTypeString()).toBe('Object');
-    expect(typeOf.getTypeString([])).toBe('Array');
+  test('test typeOf', () => {
+    expect(input.type()).toBe('Object');
+    expect(input.includes(['Array', 'String'])).toBe(false);
+    expect(input.of()).toBe({}.constructor);
+    expect(input.is('Object')).toBe(true);
+    expect(input.getTypeString()).toBe('Object');
+  });
+
+  test('test functions', () => {
+    expect(includes(['Array', 'String'], {})).toBe(false);
+    expect(of([])).toBe([].constructor);
+    expect(is('Object', {})).toBe(true);
+    expect(getTypeString([])).toBe('Array');
+    expect($BUILD_IN).toEqual([
+      Object,
+      Function,
+      Array,
+      String,
+      Boolean,
+      Number,
+      Symbol,
+      Date,
+      RegExp,
+      Error,
+    ]);
   });
 });

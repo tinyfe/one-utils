@@ -1,57 +1,97 @@
-class TypeOf<T = any> {
+export const $BUILD_IN = [
+  Object,
+  Function,
+  Array,
+  String,
+  Boolean,
+  Number,
+  Symbol,
+  Date,
+  RegExp,
+  Error,
+];
+
+function $isBuiltIn(_constructor: any): (_constructor: any) => boolean {
+  return _constructor => {
+    return $BUILD_IN.some(item => item === _constructor);
+  };
+}
+
+/**
+ * @description get value constructor
+ * @param value
+ * @returns
+ */
+export function of(value: any) {
+  if (value === null || value === undefined) {
+    return value;
+  }
+
+  return value.constructor;
+}
+
+export function getTypeString(value: any): string {
+  const type = Object.prototype.toString.call(value).slice(8, -1);
+
+  if (value === null || value === undefined) {
+    return type.toLowerCase();
+  }
+
+  // constructor type
+  const cType = of(value);
+
+  if (cType && !$isBuiltIn(cType)) {
+    return cType.name;
+  }
+
+  return type;
+}
+
+export function is(type: string, value: any) {
+  if (of(type) === String) {
+    return getTypeString(value) === type;
+  } else {
+    return of(value) === type;
+  }
+}
+
+export function includes(type: string[], value: any) {
+  return type.some(_ => is(_, value));
+}
+
+export class TypeOf<T = any> {
   value;
-  $BUILD_IN = [Object, Function, Array, String, Boolean, Number, Symbol, Date, RegExp, Error];
+  $BUILD_IN = $BUILD_IN;
 
   constructor(value: T) {
     this.value = value;
   }
 
   $isBuiltIn(_constructor: any): (_constructor: any) => boolean {
-    return _constructor => {
-      return this.$BUILD_IN.some(item => item === _constructor);
-    };
-  }
-
-  of(value: any = this.value) {
-    if (value === null || value === undefined) {
-      return value;
-    }
-
-    return value.constructor;
-  }
-
-  is(type: string) {
-    if (this.of(type) === String) {
-      return this.getTypeString(this.value) === type;
-    } else {
-      return this.of(this.value) === type;
-    }
-  }
-
-  include(type: string[]) {
-    return type.some(_ => this.is(_));
-  }
-
-  getTypeString(value: any = this.value): string {
-    const type = Object.prototype.toString.call(value).slice(8, -1);
-
-    if (value === null || value === undefined) {
-      return type.toLowerCase();
-    }
-
-    // constructor type
-    const cType = this.of(value);
-
-    if (cType && !this.$isBuiltIn(cType)) {
-      return cType.name;
-    }
-
-    return type;
+    return $isBuiltIn(_constructor);
   }
 
   type(): string {
-    return this.getTypeString(this.value);
+    return getTypeString(this.value);
+  }
+
+  of() {
+    return of(this.value);
+  }
+
+  is(type: string) {
+    return is(type, this.value);
+  }
+
+  includes(type: string[]) {
+    return includes(type, this.value);
+  }
+
+  getTypeString() {
+    return getTypeString(this.value);
   }
 }
 
-export default TypeOf;
+const typeOf = (value: any) => new TypeOf(value);
+
+export default typeOf;
