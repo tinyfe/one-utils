@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Water Mask</title>
+  <style>
+  </style>
+</head>
+
+<body>
+  <div class="watermark">
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing ept. Voluptates sequi earum praesentium harum rem. Qui
+      possimus aspernatur impedit apquid, voluptatem, cupiditate amet dolorem, quae epgendi dolores excepturi magnam
+      id. Quo.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing ept. Voluptates sequi earum praesentium harum rem. Qui
+      possimus aspernatur impedit apquid, voluptatem, cupiditate amet dolorem, quae epgendi dolores excepturi magnam
+      id. Quo.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing ept. Voluptates sequi earum praesentium harum rem. Qui
+      possimus aspernatur impedit apquid, voluptatem, cupiditate amet dolorem, quae epgendi dolores excepturi magnam
+      id. Quo.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing ept. Voluptates sequi earum praesentium harum rem. Qui
+      possimus aspernatur impedit apquid, voluptatem, cupiditate amet dolorem, quae epgendi dolores excepturi magnam
+      id. Quo.
+    </p>
+  </div>
+  <hr />
+  <div class="watermark1">
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing ept. Voluptates sequi earum praesentium harum rem. Qui
+      possimus aspernatur impedit apquid, voluptatem, cupiditate amet dolorem, quae epgendi dolores excepturi magnam
+      id. Quo.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing ept. Voluptates sequi earum praesentium harum rem. Qui
+      possimus aspernatur impedit apquid, voluptatem, cupiditate amet dolorem, quae epgendi dolores excepturi magnam
+      id. Quo.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing ept. Voluptates sequi earum praesentium harum rem. Qui
+      possimus aspernatur impedit apquid, voluptatem, cupiditate amet dolorem, quae epgendi dolores excepturi magnam
+      id. Quo.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing ept. Voluptates sequi earum praesentium harum rem. Qui
+      possimus aspernatur impedit apquid, voluptatem, cupiditate amet dolorem, quae epgendi dolores excepturi magnam
+      id. Quo.
+    </p>
+  </div>
+  <hr />
+  <div class="watermark2">
+    <p>
+      L
+      orem ipsum dolor sit amet consectetur adipisicing ept. Voluptates sequi earum praesentium harum rem. Qui
+      possimus aspernatur impedit apquid, voluptatem, cupiditate amet dolorem, quae epgendi dolores excepturi magnam
+      id. Quo.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing ept. Voluptates sequi earum praesentium harum rem. Qui
+      possimus aspernatur impedit apquid, voluptatem, cupiditate amet dolorem, quae epgendi dolores excepturi magnam
+      id. Quo.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing ept. Voluptates sequi earum praesentium harum rem. Qui
+      possimus aspernatur impedit apquid, voluptatem, cupiditate amet dolorem, quae epgendi dolores excepturi magnam
+      id. Quo.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing ept. Voluptates sequi earum praesentium harum rem. Qui
+      possimus aspernatur impedit apquid, voluptatem, cupiditate amet dolorem, quae epgendi dolores excepturi magnam
+      id. Quo.
+    </p>
+  </div>
+  <script src="/Users/zhongchao03/Desktop/MyWork/Notes/one-utils/packages/watermark/lib/index.js"></script>
+  <script>
+    new WaterMark({
+      container: document.querySelector('.watermark'),
+      text: "法网恢恢疏而不漏，POI",
+      fontType: 'Microsoft YaHei',
+      color: "red",
+      fontSize: 24,
+      alpha: .2,
+      image: '',
+      repeat: true,
+      style: {
+        width: 1000,
+        height: 800,
+        top: '30px',
+      }
+    });
+
+    new WaterMark({
+      monitor: false,
+      container: document.querySelector('.watermark1'),
+      text: "还在想抄袭，搞屁哦",
+      fontSize: 24,
+      color: "red",
+      alpha: 0.5,
+      image: '',
+      repeat: true,
+      style: {
+        width: 1000,
+        height: 800,
+        top: '30px',
+      }
+    });
+
+    new WaterMark({
+      monitor: false,
+      image: 'https://avatars.githubusercontent.com/u/20939839?v=4',
+      container: document.querySelector('.watermark2'),
+      fontSize: 24,
+      color: "red",
+      alpha: 0.5,
+      // repeat: false,
+      style: {
+        width: 1000,
+        height: 800,
+        top: '30px',
+      }
+    });
+  </script>
+</body>
+
+</html>

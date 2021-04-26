@@ -1,13 +1,15 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": ".",
+    "rootDir": ".",
     // "outDir": "./lib",
     // "declaration": true,
     "declarationDir": "./lib/@types",
     "typeRoots": ["./typings/**/**", "./node_modules/@types"],
     "paths": {
-      "src": ["./src"]
+      "src/*": ["./src/*"],
+      "typings/*": ["./typings/*"]
     },
     "lib": ["ES6", "ES7", "ES2016", "ES2017", "ES2018", "ESNext", "DOM"]
   },

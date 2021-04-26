@@ -1,12 +1,12 @@
 {
-  "name": "@tinyfe/watermask",
+  "name": "@tinyfe/watermark",
   "version": "0.0.1",
-  "description": "canvas watermask",
+  "description": "canvas watermark",
   "keywords": [
     "canvas",
-    "watermask",
+    "watermark",
     "water mask",
-    "waterMask"
+    "watermark"
   ],
   "author": "Rain120 <1085131904@qq.com>",
   "homepage": "https://github.com/tinyfe/one-utils#readme",
@@ -39,6 +39,8 @@
     "@types/jest": "^26.0.20",
     "@types/node": "^14.14.25"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@tinyfe/parse-unit": "^0.0.1"
+  },
   "gitHead": "a3bd6d8f25ebe1ae44763b6887c07296248f2e64"
 }
