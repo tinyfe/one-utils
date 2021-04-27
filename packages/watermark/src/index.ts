@@ -1,5 +1,3 @@
-// import * as parseUnit from '@tinyfe/parse-unit';
-
 interface ObserverOptions {
   // 观察目标子节点的变化, 是否有添加或者删除, 默认为 true
   childList: boolean;
@@ -7,13 +5,13 @@ interface ObserverOptions {
   attributes: boolean;
   // 观察后代节点, 默认为 true
   subtree: boolean;
-  //特性名称数组, 只观察选定的特性。
+  // 特性名称数组, 只观察选定的特性。
   attributeFilter?: string[] | undefined;
-  //是否观察 node.data(文本内容)
+  // 是否观察 node.data(文本内容)
   characterData?: boolean;
-  //如果为 true, 则将特性的旧值和新值都传递给回调(参见下文), 否则只传新值(需要 attributes 选项),
+  // 如果为 true, 则将特性的旧值和新值都传递给回调(参见下文), 否则只传新值(需要 attributes 选项),
   attributeOldValue?: boolean;
-  //如果为 true, 则将 node.data 的旧值和新值都传递给回调(参见下文), 否则只传新值(需要 characterData 选项)。
+  // 如果为 true, 则将 node.data 的旧值和新值都传递给回调(参见下文), 否则只传新值(需要 characterData 选项)。
   characterDataOldValue?: boolean;
 }
 
@@ -42,7 +40,6 @@ type Options = {
   debug: boolean;
   container: string | HTMLCanvasElement;
   image: string;
-  canvas: Element | null;
   // monitor 是否监控, true: 不可删除水印; false: 可删水印。默认为 true
   monitor: boolean;
   // 在指定图片格式为 image/jpeg 或 image/webp的情况下
@@ -127,12 +124,6 @@ export default class WaterMark {
       const value = defaultCanvasStyle[key];
 
       if (canvasLengthKeyword.includes(key) && value) {
-        // TODO: 宽度问题
-        // if (isCssValue(value)) {
-        //   this.canvas[key] = value;
-        // } else {
-        //   const [v, unit] = parseUnit(value);
-        // }
         this.canvas[key] = value + '';
       } else {
         this.canvas.style[key] = value;
@@ -309,6 +300,16 @@ export default class WaterMark {
     const base64 = this.getImage();
 
     dom.style['background-image'] = `url(${base64})`;
+  }
+
+  removeWaterMark(dom: HTMLElement | null = this.dom) {
+    if (!dom) {
+      reportError(`The dom value must be a HTMLElement, now is ${dom}`);
+      return;
+    }
+
+    this.observer!.disconnect();
+    dom.style['background-image'] = '';
   }
 
   /**
