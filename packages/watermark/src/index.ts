@@ -95,7 +95,7 @@ const defaultOptions = Object.assign(
     debug: false,
     monitor: true,
     repeat: true,
-    container: null,
+    container: '',
     encoderOptions: 0.92,
   },
   defaultMarkConfig,

@@ -5,7 +5,7 @@
 ## Usage
 
 ```js
-import watermark from '@tinyfe/watermark';
+import WaterMark from '@tinyfe/watermark';
 
 new WaterMark({
   container: document.querySelector('.watermark'),
