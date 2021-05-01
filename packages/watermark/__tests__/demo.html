@@ -80,8 +80,12 @@
       id. Quo.
     </p>
   </div>
-  <script src="/Users/zhongchao03/Desktop/MyWork/Notes/one-utils/packages/watermark/lib/index.js"></script>
+  <script src="./index.js"></script>
   <script>
+    new WaterMark({
+      container: document.querySelector('.watermark'),
+      text: '法网恢恢疏而不漏，POI',
+    });
     new WaterMark({
       container: document.querySelector('.watermark'),
       text: "法网恢恢疏而不漏，POI",

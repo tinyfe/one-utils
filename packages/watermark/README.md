@@ -4,9 +4,22 @@
 
 ## Usage
 
+### 基础用法(so easy)
+
 ```js
 import WaterMark from '@tinyfe/watermark';
 
+new WaterMark({
+  container: document.querySelector('.watermark'),
+  text: '法网恢恢疏而不漏，POI',
+});
+```
+
+![](./screenshot/watermark.png)
+
+### 进阶用法
+
+```js
 new WaterMark({
   container: document.querySelector('.watermark'),
   text: '法网恢恢疏而不漏，POI',
@@ -38,7 +51,9 @@ new WaterMark({
     top: '30px',
   },
 });
+```
 
+```js
 new WaterMark({
   monitor: false,
   image: 'https://avatars.githubusercontent.com/u/20939839?v=4',
@@ -53,6 +68,8 @@ new WaterMark({
   },
 });
 ```
+
+![](./screenshot/watermark-image.png)
 
 ### 参数
 
@@ -90,15 +107,15 @@ new WaterMark({
 
 #### ObserverOptions
 
-| Key                     | 类型      | 默认值     | 描述                                                                                                        |
-| ----------------------- | --------- | ---------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------ |
-| `childList`             | `boolean` | `true`     | 观察目标子节点的变化, 是否有添加或者删除                                                                    |
-| `attributes`            | `boolean` | `true`     | 观察属性变动                                                                                                |
-| `subtree`               | `boolean` | `true`     | 观察后代节点                                                                                                |
-| `attributeFilter`       | `string[] | undefined` | `['style']`                                                                                                 | 特性名称数组, 只观察选定的特性 |
-| `characterData`         | `boolean` |            | 是否观察 `node.data`(文本内容)                                                                              |
-| `attributeOldValue`     | `boolean` |            | 如果为 `true`, 则将特性的旧值和新值都传递给回调(参见下文), 否则只传新值(需要 `attributes` 选项)             |
-| `characterDataOldValue` | `boolean` |            | 如果为 `true`, 则将 `node.data` 的旧值和新值都传递给回调(参见下文), 否则只传新值(需要 `characterData` 选项) |
+| Key                     | 类型                    | 默认值      | 描述                                                                                                        |
+| ----------------------- | ----------------------- | ----------- | ----------------------------------------------------------------------------------------------------------- |
+| `childList`             | `boolean`               | `true`      | 观察目标子节点的变化, 是否有添加或者删除                                                                    |
+| `attributes`            | `boolean`               | `true`      | 观察属性变动                                                                                                |
+| `subtree`               | `boolean`               | `true`      | 观察后代节点                                                                                                |
+| `attributeFilter`       | `string[]`, `undefined` | `['style']` | 特性名称数组, 只观察选定的特性                                                                              |
+| `characterData`         | `boolean`               |             | 是否观察 `node.data`(文本内容)                                                                              |
+| `attributeOldValue`     | `boolean`               |             | 如果为 `true`, 则将特性的旧值和新值都传递给回调(参见下文), 否则只传新值(需要 `attributes` 选项)             |
+| `characterDataOldValue` | `boolean`               |             | 如果为 `true`, 则将 `node.data` 的旧值和新值都传递给回调(参见下文), 否则只传新值(需要 `characterData` 选项) |
 
 ## APIs 设计
 
