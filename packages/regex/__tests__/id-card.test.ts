@@ -1,3 +1,10 @@
+import {
+  test as testRegex,
+  idCardRegex,
+  idCard15Regex,
+  idCard18Regex,
+} from '../src';
+
 const idCard = [
   {
     value: '345678001100234',
@@ -34,4 +41,14 @@ const idCard = [
   },
 ];
 
-export default idCard;
+describe('@tinyfe/regex', () => {
+  test('test id card', () => {
+    idCard.map(item => {
+      expect(testRegex(idCard15Regex, item.value)).toBe(item.result[0]);
+
+      expect(testRegex(idCard18Regex, item.value)).toBe(item.result[1]);
+
+      expect(testRegex(idCardRegex, item.value)).toBe(item.result[2]);
+    });
+  });
+});

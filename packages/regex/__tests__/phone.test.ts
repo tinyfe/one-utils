@@ -1,3 +1,5 @@
+import { test as testRegex, phoneRegex, phoneLooseRegex } from '../src';
+
 const phones = [
   {
     value: '10123456775',
@@ -42,4 +44,12 @@ const phones = [
   },
 ];
 
-export default phones;
+describe('@tinyfe/regex', () => {
+  test('test phone', () => {
+    phones.map(item => {
+      expect(testRegex(phoneRegex, item.value)).toBe(item.result[0]);
+
+      expect(testRegex(phoneLooseRegex, item.value)).toBe(item.result[1]);
+    });
+  });
+});
