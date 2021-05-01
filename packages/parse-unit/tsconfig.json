@@ -4,12 +4,11 @@
     "baseUrl": "./",
     // "outDir": "./lib",
     "declarationDir": "./lib/@types",
-    "typeRoots": ["./typings/**/**", "./node_modules/@types"],
-    "paths": {
-      "src": ["./src"]
-    },
-    "lib": ["es6", "es7", "DOM"]
+    "typeRoots": ["./typings", "./node_modules/@types"]
   },
-  "files": ["src/index.ts"],
-  "include": ["src/**/*", "typings/**/*"]
+  "paths": {
+    "src/*": ["./src/*"],
+    "typings/*": ["./typings/*"]
+  },
+  "include": ["src/**/*.ts", "typings/**/*.ts"]
 }
