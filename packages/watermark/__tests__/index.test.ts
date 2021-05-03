@@ -1,6 +1,6 @@
 'use strict';
 
-import WaterMark from '../src';
+// import WaterMark from '../src';
 
 // TODO: dom 怎么单测
 // new WaterMark({
@@ -21,6 +21,6 @@ import WaterMark from '../src';
 
 describe('@tinyfe/watermark', () => {
   test('test', () => {
-    // expect(watermark).toBe(undefined);
+    expect(undefined).toEqual(undefined);
   });
 });
