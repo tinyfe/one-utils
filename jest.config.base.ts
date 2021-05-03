@@ -3,8 +3,9 @@
  * https://jestjs.io/docs/en/configuration.html
  */
 const { defaults: tsPresets } = require('ts-jest/presets');
+import type { Config } from '@jest/types';
 
-export default {
+const config: Config.InitialOptions = {
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 
@@ -69,7 +70,11 @@ export default {
   // A set of global variables that need to be available in all test environments
   globals: {
     'ts-jest': {
+      // 如果开启了 diagnostics，就会在编译前执行诊断，诊断时会报模块无法找到的错误，从而终止编译。
       diagnostics: false,
+      babelConfig: {
+        rootMode: 'upward',
+      },
     },
   },
 
@@ -97,7 +102,7 @@ export default {
   // notifyMode: "failure-change",
 
   // A preset that is used as a base for Jest's configuration
-  // preset: undefined,
+  preset: 'ts-jest',
 
   // Run tests from one or more projects
   // projects: undefined,
@@ -148,7 +153,10 @@ export default {
   // testLocationInResults: false,
 
   // The glob patterns Jest uses to detect test files
-  testMatch: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[tj]s?(x)'],
+  testMatch: [
+    '**/__tests__/**/*.test.[jt]s?(x)',
+    '**/?(*.)+(spec|test).[tj]s?(x)',
+  ],
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
   // testPathIgnorePatterns: [
@@ -157,7 +165,7 @@ export default {
 
   // The regexp pattern or array of patterns that Jest uses to detect test files
   // testRegex: [
-  //   // "(/tests/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+  // "(/tests/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
   //   '(/__tests__/.*\\.(test|spec))\\.[tj]s?$',
   // ],
 
@@ -176,7 +184,8 @@ export default {
   // A map from regular expressions to paths to transformers
   transform: {
     ...tsPresets.transform,
-    // "^.+\\.ts$": "ts-jest"
+    // '^.+\\.ts$': 'ts-jest',
+    '^.+\\.jsx?$': ['babel-jest', { rootMode: 'upward' }],
   },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
@@ -197,3 +206,5 @@ export default {
   // Whether to use watchman for file crawling
   // watchman: true,
 };
+
+export default config;

@@ -14,10 +14,10 @@ jobs:
     name: Test and Deploy Docs
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Master
+      - name: Checkout 🛎️
         uses: actions/checkout@master
 
-      - name: Test
+      - name: Test 🔧
         run: |
           npm ci
           # npm run build --if-present
@@ -36,10 +36,8 @@ jobs:
       #     github-token: ${{ secrets.ACCESS_TOKEN }}
       #     parallel-finished: true
 
-      # - name: Deploy
-      #   uses: JamesIves/github-pages-deploy-action@master
-      #   env:
-      #     ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-      #     BRANCH: gh-pages
-      #     FOLDER: docs/.vuepress/dist
-      #     BUILD_SCRIPT: npm run deploy
+      # - name: Deploy 🚀
+      #   uses: JamesIves/github-pages-deploy-action@4.1.1
+      #   with:
+      #     branch: gh-pages
+      #     folder: docs/.vuepress/dist
