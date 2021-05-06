@@ -4,7 +4,9 @@
   "description": "parse unit",
   "keywords": [
     "parse",
-    "unit"
+    "unit",
+    "css-unit",
+    "css-unit-parse"
   ],
   "author": "Rain120 <1085131904@qq.com>",
   "homepage": "https://github.com/tinyfe/one-utils#readme",
