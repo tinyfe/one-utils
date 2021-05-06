@@ -1,7 +1,7 @@
 {
   "name": "@tinyfe/watermark",
   "version": "0.0.1",
-  "description": "canvas watermark",
+  "description": "use canvas generate the watermark",
   "keywords": [
     "canvas",
     "watermark",
