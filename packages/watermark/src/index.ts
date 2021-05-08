@@ -106,6 +106,7 @@ function reportError(err: string | undefined) {
 }
 
 const canvasLengthKeyword = ['width', 'height'];
+
 export default class WaterMark {
   options: Options;
   ctx: CanvasRenderingContext2D;
