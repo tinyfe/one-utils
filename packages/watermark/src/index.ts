@@ -38,7 +38,7 @@ interface MarkOptions {
 type Options = {
   // debug 输出日志
   debug: boolean;
-  container: string | HTMLCanvasElement;
+  container: string | HTMLElement;
   image: string;
   // monitor 是否监控, true: 不可删除水印; false: 可删水印。默认为 true
   monitor: boolean;
@@ -325,7 +325,7 @@ export default class WaterMark {
     return this.canvas.toDataURL(type, encoderOptions);
   }
 
-  getCanvasElement(container: string | HTMLCanvasElement): HTMLCanvasElement {
+  getCanvasElement(container: string | HTMLElement): HTMLCanvasElement {
     const canvas = document.createElement('canvas');
     if (typeof container === 'string') {
       if (container.startsWith('#')) {
