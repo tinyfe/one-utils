@@ -71,18 +71,27 @@ new WaterMark({
 
 ![](./screenshot/watermark-image.png)
 
+### Playground
+
+<iframe src="https://codesandbox.io/embed/tinyfeone-utils-3n2tr?fontsize=14&hidenavigation=1&theme=dark"
+  style="width:100%; height:700px; border:0; border-radius: 4px; overflow:hidden;"
+  title="tinyfe/one-utils"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
+
 ### 参数
 
 #### Options
 
-| Key               | 类型               | 默认值                              | 描述                                                                                                                                                            |
-| ----------------- | ------------------ | ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `container`       | `object`           | `null`                              | 挂载节点                                                                                                                                                        |
-| `monitor`         | `boolean`          | `true`                              | `monitor` 是否监控, `true`: 不可删除水印; `false`: 可删水印                                                                                                     |
-| `observer`        | `MutationCallback` |                                     | `MutationObserver Callback`                                                                                                                                     |
-| `observerOptions` | `object`           | [ObserverOptions](#ObserverOptions) | `MutationObserver Options`                                                                                                                                      |
-| `encoderOptions`  | `number`           | `0.92`                              | 在指定图片格式为 `image/jpeg` 或 `image/webp`的情况下<br/>可以从 `0` 到 `1` 的区间内选择图片的质量。如果超出取值范围, 将会使用默认值 `0.92`。其他参数会被忽略。 |
-| `style`           | `object`           | `{}`                                | 初始化 `canvas` 样式                                                                                                                                            |
+| Key               | 类型                      | 默认值                              | 描述                                                                                                                                                            |
+| ----------------- | ------------------------- | ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `container`       | `string` \| `HTMLElement` | `null`                              | 挂载节点。<br /> **注意, 传入值为 `string` 时, 为了保证唯一性, 默认是以 `id` 的方式传入**                                                                       |
+| `monitor`         | `boolean`                 | `true`                              | `monitor` 是否监控, `true`: 不可删除水印; `false`: 可删水印                                                                                                     |
+| `observer`        | `MutationCallback`        |                                     | `MutationObserver Callback`                                                                                                                                     |
+| `observerOptions` | `object`                  | [ObserverOptions](#ObserverOptions) | `MutationObserver Options`                                                                                                                                      |
+| `encoderOptions`  | `number`                  | `0.92`                              | 在指定图片格式为 `image/jpeg` 或 `image/webp`的情况下<br/>可以从 `0` 到 `1` 的区间内选择图片的质量。如果超出取值范围, 将会使用默认值 `0.92`。其他参数会被忽略。 |
+| `style`           | `object`                  | `{}`                                | 初始化 `canvas` 样式                                                                                                                                            |
 
 #### 水印配置
 
