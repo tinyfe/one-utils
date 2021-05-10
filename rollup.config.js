@@ -88,7 +88,7 @@ function config({ location, pkgJson }) {
     include: [path.join(location, 'src/**/*.ts')],
     rollupCommonJSResolveHack: true,
     tsconfig: path.join(location, 'tsconfig.json'),
-    declarationDir: path.join(location, 'lib/@types'),
+    declarationDir: path.join(location, '@types'),
     useTsconfigDeclarationDir: true,
   });
   const plugins = [tsPlugin, ...commonPlugins];

@@ -12,9 +12,9 @@
   "homepage": "https://github.com/tinyfe/one-utils#readme",
   "license": "MIT",
   "main": "lib/index.js",
-  "module": "lib/index.es.js",
+  "module": "es/index.js",
   "browser": "lib/browser.js",
-  "typings": "lib/@types/index.d.ts",
+  "typings": "@types/index.d.ts",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
