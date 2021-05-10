@@ -17,10 +17,16 @@
   "typings": "@types/index.d.ts",
   "directories": {
     "lib": "lib",
+    "src": "src",
+    "es": "es",
+    "@types": "@types",
     "test": "__tests__"
   },
   "files": [
-    "lib"
+    "lib",
+    "es",
+    "src",
+    "@types"
   ],
   "publishConfig": {
     "assess": "public"
