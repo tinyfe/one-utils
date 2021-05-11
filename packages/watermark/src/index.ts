@@ -16,37 +16,37 @@ interface ObserverOptions {
 }
 
 interface MarkOptions {
-  prefix: string;
+  prefix?: string;
   text: string;
-  width: number;
-  height: number;
-  color: string;
-  font: string;
-  fontSize: number;
-  alpha: number;
-  rotate: number;
-  scale: number;
-  startX: number;
-  startY: number;
-  rows: number;
-  cols: number;
-  xGap: number;
-  yGap: number;
-  repeat: boolean;
+  width?: number;
+  height?: number;
+  color?: string;
+  font?: string;
+  fontSize?: number;
+  alpha?: number;
+  rotate?: number;
+  scale?: number;
+  startX?: number;
+  startY?: number;
+  rows?: number;
+  cols?: number;
+  xGap?: number;
+  yGap?: number;
+  repeat?: boolean;
 }
 
 type Options = {
   // debug 输出日志
-  debug: boolean;
+  debug?: boolean;
   container: string | HTMLElement;
   image: string;
   // monitor 是否监控, true: 不可删除水印; false: 可删水印。默认为 true
-  monitor: boolean;
+  monitor?: boolean;
   // 在指定图片格式为 image/jpeg 或 image/webp的情况下
   // 可以从 0 到 1 的区间内选择图片的质量。如果超出取值范围, 将会使用默认值 0.92。其他参数会被忽略。
   // 默认值是 0.92
-  encoderOptions: number;
-  style: {
+  encoderOptions?: number;
+  style?: {
     [key: string]: any;
   };
   observer: MutationCallback;
@@ -109,17 +109,38 @@ const canvasLengthKeyword = ['width', 'height'];
 
 export default class WaterMark {
   options: Options;
-  ctx: CanvasRenderingContext2D;
-  canvas: HTMLCanvasElement;
+  private ctx!: CanvasRenderingContext2D;
+  private canvas!: HTMLCanvasElement;
   dom: HTMLElement | null = null;
   observer: MutationObserver | null = null;
 
   constructor(options: Options) {
     this.options = this.merge(options);
-    this.canvas = this.getCanvasElement(options.container);
 
-    // @ts-ignore
-    this.ctx = this.canvas.getContext('2d');
+    if (!document) {
+      reportError('Your environment does not have document.');
+      return;
+    }
+
+    let { container } = options;
+
+    if (typeof container === 'string') {
+      if (container.startsWith('#')) {
+        container = container.slice(1);
+      }
+      this.dom = document.getElementById(container);
+    } else if (!(container instanceof HTMLElement)) {
+      this.dom = container;
+    } else {
+      reportError(
+        `The element of the "${container}" is not a HTMLElement or it not the element id. Make sure a <div id="${container}"></div> element is present in the document.`,
+      );
+      return;
+    }
+
+    this.canvas = document.createElement('canvas');
+
+    this.ctx = this.canvas.getContext('2d') as CanvasRenderingContext2D;
 
     Object.keys(defaultCanvasStyle).forEach(key => {
       const value = defaultCanvasStyle[key];
@@ -144,11 +165,17 @@ export default class WaterMark {
   }
 
   private draw() {
-    const { alpha, fontSize, color, image, text } = this.options;
+    const {
+      alpha = 0.2,
+      fontSize,
+      color = '#848FA7',
+      image,
+      text,
+    } = this.options;
 
-    this.ctx!.globalAlpha = alpha;
-    this.ctx!.font = fontSize + 'px';
-    this.ctx!.fillStyle = color;
+    this.ctx.globalAlpha = alpha;
+    this.ctx.font = fontSize + 'px';
+    this.ctx.fillStyle = color;
 
     if (image) {
       this.drawImage();
@@ -167,15 +194,15 @@ export default class WaterMark {
       image: url,
       width: w,
       height: h,
-      rows,
-      cols,
-      xGap,
-      yGap,
-      startX,
-      startY,
-      scale,
-      rotate,
       repeat,
+      rotate = 340,
+      scale = 1,
+      startX = 20,
+      startY = 20,
+      rows = 5,
+      cols = 5,
+      xGap = 200,
+      yGap = 100,
     } = this.options;
     const { width, height } = this.canvas;
 
@@ -226,24 +253,24 @@ export default class WaterMark {
 
   drawFont(): void {
     const {
-      color,
+      color = '#848FA7',
       fontSize,
       font,
       text,
       prefix,
-      rows,
-      cols,
-      xGap,
-      yGap,
-      startX,
-      startY,
-      scale,
-      rotate,
       repeat,
+      rotate = 340,
+      scale = 1,
+      startX = 20,
+      startY = 20,
+      rows = 5,
+      cols = 5,
+      xGap = 200,
+      yGap = 100,
     } = this.options;
     const { width, height } = this.canvas;
-    this.ctx!.font = font + ' ' + fontSize + 'px';
-    this.ctx!.fillStyle = color;
+    this.ctx.font = font + ' ' + fontSize + 'px';
+    this.ctx.fillStyle = color;
 
     const canvasDrawing = (
       width: number,
@@ -319,31 +346,8 @@ export default class WaterMark {
    * @param encoderOptions 在指定图片格式为 image/jpeg 或 image/webp的情况下, 可以从 0 到 1 的区间内选择图片的质量。如果超出取值范围, 将会使用默认值 0.92。其他参数会被忽略。
    * @returns 包含 data URI 的DOMString。
    */
-  getImage(
-    type = 'image/png',
-    encoderOptions: number = this.options.encoderOptions,
-  ) {
+  getImage(type = 'image/png', encoderOptions = this.options.encoderOptions) {
     return this.canvas.toDataURL(type, encoderOptions);
-  }
-
-  getCanvasElement(container: string | HTMLElement): HTMLCanvasElement {
-    const canvas = document.createElement('canvas');
-    if (typeof container === 'string') {
-      if (container.startsWith('#')) {
-        container = container.slice(1);
-      }
-      this.dom = document.getElementById(container);
-    } else {
-      this.dom = container;
-    }
-
-    if (!(canvas instanceof HTMLCanvasElement)) {
-      reportError(
-        `The element of id "${container}" is not a HTMLCanvasElement. Make sure a <canvas id="${container}""> element is present in the document.`,
-      );
-    }
-
-    return canvas;
   }
 
   merge(options: Options) {

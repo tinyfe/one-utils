@@ -75,35 +75,35 @@ new WaterMark({
 
 #### Options
 
-| Key               | 类型                      | 默认值                              | 描述                                                                                                                                                            |
-| ----------------- | ------------------------- | ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `container`       | `string` \| `HTMLElement` | `null`                              | 挂载节点。<br /> **注意, 传入值为 `string` 时, 为了保证唯一性, 默认是以 `id` 的方式传入**                                                                       |
-| `monitor`         | `boolean`                 | `true`                              | `monitor` 是否监控, `true`: 不可删除水印; `false`: 可删水印                                                                                                     |
-| `observer`        | `MutationCallback`        |                                     | `MutationObserver Callback`                                                                                                                                     |
-| `observerOptions` | `object`                  | [ObserverOptions](#ObserverOptions) | `MutationObserver Options`                                                                                                                                      |
-| `encoderOptions`  | `number`                  | `0.92`                              | 在指定图片格式为 `image/jpeg` 或 `image/webp`的情况下<br/>可以从 `0` 到 `1` 的区间内选择图片的质量。如果超出取值范围, 将会使用默认值 `0.92`。其他参数会被忽略。 |
-| `style`           | `object`                  | `{}`                                | 初始化 `canvas` 样式                                                                                                                                            |
+| Key                       | 类型                      | 默认值                              | 描述                                                                                                                                                            |
+| ------------------------- | ------------------------- | ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `container`**(必选参数)** | `string` \| `HTMLElement` | `null`                              | 挂载节点。<br /> **注意, 传入值为 `string` 时, 为了保证唯一性, 默认是以 `id` 的方式传入**                                                                       |
+| `monitor`                 | `boolean`                 | `true`                              | `monitor` 是否监控, `true`: 不可删除水印; `false`: 可删水印                                                                                                     |
+| `observer`                | `MutationCallback`        |                                     | `MutationObserver Callback`                                                                                                                                     |
+| `observerOptions`         | `object`                  | [ObserverOptions](#ObserverOptions) | `MutationObserver Options`                                                                                                                                      |
+| `encoderOptions`          | `number`                  | `0.92`                              | 在指定图片格式为 `image/jpeg` 或 `image/webp`的情况下<br/>可以从 `0` 到 `1` 的区间内选择图片的质量。如果超出取值范围, 将会使用默认值 `0.92`。其他参数会被忽略。 |
+| `style`                   | `object`                  | `{}`                                | 初始化 `canvas` 样式                                                                                                                                            |
 
 #### 水印配置
 
-| Key        | 类型      | 默认值            | 描述                               |
-| ---------- | --------- | ----------------- | ---------------------------------- |
-| `prefix`   | `string`  | `''`              | 水印前缀，只在 `text` 模式下使用   |
-| `text`     | `string`  | `''`              | 当 `image`为空值时使用 `text` 模式 |
-| `font`     | `string`  | `Microsoft YaHei` | 字体相关样式                       |
-| `fontSize` | `number`  | 24                |                                    |
-| `image`    | `string`  | `''`              | 水印图片                           |
-| `color`    | `string`  | `#848FA7`         | 水印颜色                           |
-| `alpha`    | `number`  | 0.2               | 水印透明度                         |
-| `rotate`   | `number`  | 340               | deg，水印旋转角度，                |
-| `scale`    | `number`  | 1                 | 缩放                               |
-| `repeat`   | `boolean` | true              | 水印是够在`x`轴 `y` 轴上重复       |
-| `rows`     | `number`  | 5                 | 重复行数                           |
-| `cols`     | `number`  | 5                 | 重复列数                           |
-| `startX`   | `number`  | 20                | `px`, 重复水印`x`轴起点            |
-| `startY`   | `number`  | 20                | `px`, 重复水印`y`轴起点            |
-| `xGap`     | `number`  | 200               | `px`, 重复水印`x`轴偏移            |
-| `yGap`     | `number`  | 100               | `px`, 重复水印`y`轴偏移            |
+| Key                  | 类型      | 默认值            | 描述                               |
+| -------------------- | --------- | ----------------- | ---------------------------------- |
+| `prefix`             | `string`  | `''`              | 水印前缀，只在 `text` 模式下使用   |
+| `text`**(必选参数)** | `string`  | `''`              | 当 `image`为空值时使用 `text` 模式 |
+| `font`               | `string`  | `Microsoft YaHei` | 字体相关样式                       |
+| `fontSize`           | `number`  | 24                |                                    |
+| `image`              | `string`  | `''`              | 水印图片                           |
+| `color`              | `string`  | `#848FA7`         | 水印颜色                           |
+| `alpha`              | `number`  | 0.2               | 水印透明度                         |
+| `rotate`             | `number`  | 340               | deg，水印旋转角度，                |
+| `scale`              | `number`  | 1                 | 缩放                               |
+| `repeat`             | `boolean` | true              | 水印是够在`x`轴 `y` 轴上重复       |
+| `rows`               | `number`  | 5                 | 重复行数                           |
+| `cols`               | `number`  | 5                 | 重复列数                           |
+| `startX`             | `number`  | 20                | `px`, 重复水印`x`轴起点            |
+| `startY`             | `number`  | 20                | `px`, 重复水印`y`轴起点            |
+| `xGap`               | `number`  | 200               | `px`, 重复水印`x`轴偏移            |
+| `yGap`               | `number`  | 100               | `px`, 重复水印`y`轴偏移            |
 
 #### ObserverOptions
 
