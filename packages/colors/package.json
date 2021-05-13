@@ -1,6 +1,6 @@
 {
   "name": "@tinyfe/colors",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "the utils for color",
   "keywords": [
     "color",
@@ -39,7 +39,7 @@
     "@types/node": "^14.14.25"
   },
   "dependencies": {
-    "@tinyfe/color-keywords": "^0.0.3"
+    "@tinyfe/color-keywords": "^0.0.4"
   },
   "gitHead": "3f07b5d0287d1247dd0d5bf93f71c17c3a70381b"
 }
