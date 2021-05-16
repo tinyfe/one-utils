@@ -27,7 +27,7 @@
  * vmax	  视图大尺寸的1%
  */
 
-// https://jex.im/regulex/#!flags=&re=%5E(v%5Bh%7Cw%7Cmin%7Cmax%5D%2B%7Cp%5Bc%7Ct%7Cx%5D%7C%5Bre%7Ce%7Cc%7Cm%5Dm%7C%5Bl%7Cc%5Dh%7C%25%7Cin%7CQ%7Cex)%24
-export const cssUnit = '(v[h|w|min|max]+|p[c|t|x]|[re|e|c|m]m|[l|c]h|%|in|Q|ex)';
+// https://jex.im/regulex/#!flags=&re=(v%5Bh%7Cw%7Cmin%7Cmax%5D%7Cp%5Bc%7Ct%7Cx%5D%7C%5Bre%7Ce%7Cc%7Cm%5Dm%7C%5Bl%7Cc%5Dh%7C%25%7Cin%7CQ%7Cex)
+export const cssUnit = '(v[h|w|min|max]|p[c|t|x]|[re|e|c|m]m|[l|c]h|%|in|Q|ex)';
 
-export const cssUnitRegex = new RegExp(cssUnit, 'g');
+export const cssUnitRegex = new RegExp(cssUnit);
