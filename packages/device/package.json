@@ -1,6 +1,6 @@
 {
   "name": "@tinyfe/device",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "judge difference devices for browser by user agent",
   "keywords": [],
   "author": "Rain120 <1085131904@qq.com>",
