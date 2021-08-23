@@ -3,6 +3,7 @@ import { sync as rm } from 'rimraf';
 import { Fn, OptionTypes, Repository } from './typings';
 import { promisify } from 'util';
 import fs from 'fs';
+import { clone as _clone } from '@tinyfe/git-clone';
 import { getUrl, normalize } from './plugins';
 
 // https://github.com/ianstormtaylor/download-github-repo
@@ -69,4 +70,3 @@ export function download(
 }
 
 export const downloadPromisify = promisify(download);
-export * from './clone';
