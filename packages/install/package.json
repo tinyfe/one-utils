@@ -1,6 +1,6 @@
 {
   "name": "@tinyfe/install",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "npm install",
   "keywords": [
     "install",
@@ -33,18 +33,12 @@
     "url": "https://github.com/tinyfe/one-utils/issues"
   },
   "scripts": {
-    "test": "jest --watch",
-    "dev": "cross-env NODE_ENV=MODULE rollup -cw ../../rollup.config.js",
-    "watch:umd": "cross-env NODE_ENV=BUILD rollup -cw ../../rollup.config.js",
-    "build:module": "cross-env NODE_ENV=MODULE rollup -c ../../rollup.config.js",
-    "build:umd": "cross-env NODE_ENV=UMD rollup -c ../../rollup.config.js",
-    "build:all": "cross-env NODE_ENV=ALL rollup -c ../../rollup.config.js",
-    "build": "npm run build:all"
+    "test": "jest --watch"
   },
   "devDependencies": {
     "@types/jest": "^26.0.20",
     "@types/node": "^14.14.25",
     "chalk": "^4.1.2"
   },
-  "gitHead": "2c749adebdd3f886566c7bc212bd55a5c69c06e1"
+  "gitHead": "3f07b5d0287d1247dd0d5bf93f71c17c3a70381b"
 }

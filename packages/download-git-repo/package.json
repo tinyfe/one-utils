@@ -32,7 +32,9 @@
     "url": "https://github.com/tinyfe/one-utils/issues"
   },
   "scripts": {
-    "test": "jest --watch"
+    "test": "jest --watch",
+    "watch": "tsc -w",
+    "build": "rm -rf lib && tsc"
   },
   "devDependencies": {
     "@types/download": "^8.0.1",
@@ -43,6 +45,8 @@
     "rimraf": "^3.0.2",
     "typescript": "^4.3.5"
   },
-  "dependencies": {},
-  "gitHead": "a3bd6d8f25ebe1ae44763b6887c07296248f2e64"
+  "dependencies": {
+    "@tinyfe/git-clone": "0.0.1"
+  },
+  "gitHead": "3f07b5d0287d1247dd0d5bf93f71c17c3a70381b"
 }
