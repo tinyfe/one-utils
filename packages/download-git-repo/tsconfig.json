@@ -1,15 +1,24 @@
 {
-  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "baseUrl": "./",
-    // "outDir": "./lib",
-    // "declaration": true,
-    "declarationDir": "./lib/@types",
-    "typeRoots": ["src/typings/**/**", "./node_modules/@types"],
+    "outDir": "./lib",
+    "target": "ESNext",
+    "module": "commonjs",
+    "allowJs": false,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "strict": true,
+    "noFallthroughCasesInSwitch": true,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    // "declarationMap": true,
+    // "sourceMap": true,
+    "typeRoots": ["node_modules/@types"],
     "paths": {
       "src": ["./src"]
-    },
-    "lib": ["ES6", "ES7", "ES2016", "ES2017", "ES2018", "ESNext", "DOM"]
+    }
   },
-  "include": ["src/**/*", "src/typings/**/*", "index.d.ts"]
+  "exclude": ["node_modules", "__tests__", "src/types", "test", "build"],
+  "include": ["src"]
 }
