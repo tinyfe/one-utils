@@ -11,9 +11,7 @@
   "homepage": "https://github.com/tinyfe/one-utils#readme",
   "license": "MIT",
   "main": "lib/index.js",
-  "module": "lib/index.es.js",
-  "browser": "lib/browser.js",
-  "typings": "lib/@types/index.d.ts",
+  "typings": "lib/index.d.ts",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -47,5 +45,6 @@
   },
   "dependencies": {
     "@tinyfe/git-clone": "0.0.1"
-  }
+  },
+  "gitHead": "2905d6c8aa5e1cc4aa5f4555515e5223cfb89a63"
 }
