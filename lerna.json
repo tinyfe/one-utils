@@ -16,12 +16,17 @@
       "skipGit": true,
       "ignorePrepublish": true,
       "hoist": true,
-      "ignore": "component-*",
       "npmClientArgs": []
     },
     "version": {
       "allowBranch": "main",
-      "ignoreChanges": ["**/*.md", "**/example/**", "**/__tests__/**", "**/.eslintrc.js", "**/tsconfig.json"]
+      "ignoreChanges": [
+        "**/*.md",
+        "**/example/**",
+        "**/__tests__/**",
+        "**/.eslintrc.js",
+        "**/tsconfig.json"
+      ]
     }
   },
   "hoist": ["jest", "typescript"],
