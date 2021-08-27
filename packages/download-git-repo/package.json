@@ -1,6 +1,6 @@
 {
   "name": "@tinyfe/download-git-repo",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "download git repo",
   "keywords": [
     "download",
@@ -46,5 +46,5 @@
   "dependencies": {
     "@tinyfe/git-clone": "0.0.1"
   },
-  "gitHead": "00f62c3b45abe0cdb872df07e5d5c471f5ec8094"
+  "gitHead": "ada2f0cc6c3db1634e111f47c634778b327a97bb"
 }
