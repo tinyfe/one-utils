@@ -31,8 +31,7 @@
   },
   "scripts": {
     "test": "jest --watch",
-    "watch": "tsc -w",
-    "build": "rm -rf lib && tsc"
+    "watch": "tsc -w"
   },
   "devDependencies": {
     "@types/download": "^8.0.1",
