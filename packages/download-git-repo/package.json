@@ -1,6 +1,6 @@
 {
   "name": "@tinyfe/download-git-repo",
-  "version": "0.0.2",
+  "version": "0.0.0",
   "description": "download git repo",
   "keywords": [
     "download",
@@ -31,7 +31,8 @@
   },
   "scripts": {
     "test": "jest --watch",
-    "watch": "tsc -w"
+    "watch": "tsc -w",
+    "build": "rm -rf lib && tsc"
   },
   "devDependencies": {
     "@types/download": "^8.0.1",
@@ -45,5 +46,5 @@
   "dependencies": {
     "@tinyfe/git-clone": "0.0.1"
   },
-  "gitHead": "ada2f0cc6c3db1634e111f47c634778b327a97bb"
+  "gitHead": "d6913ee0fa71febe2aa3128d6f94c32cc022d4a2"
 }
