@@ -129,7 +129,7 @@ export default class WaterMark {
         container = container.slice(1);
       }
       this.dom = document.getElementById(container);
-    } else if (!(container instanceof HTMLElement)) {
+    } else if (container instanceof HTMLElement) {
       this.dom = container;
     } else {
       reportError(
@@ -269,7 +269,7 @@ export default class WaterMark {
       yGap = 100,
     } = this.options;
     const { width, height } = this.canvas;
-    this.ctx.font = font + ' ' + fontSize + 'px';
+    this.ctx.font = fontSize + 'px' + ' ' + font;
     this.ctx.fillStyle = color;
 
     const canvasDrawing = (
