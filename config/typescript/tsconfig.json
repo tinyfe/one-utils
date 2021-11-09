@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "module": "ESNEXT",
+    "target": "ESNEXT",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true,
+    "esModuleInterop": true,
+    "jsx": "react",
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "strict": true,
+    "suppressImplicitAnyIndexErrors": true
+  }
+}

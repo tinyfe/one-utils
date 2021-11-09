@@ -31,13 +31,7 @@
     "prettier": "prettier --write packages/**/**.ts",
     "lint-staged": "lint-staged",
     "test": "jest",
-    "test-cov": "jest --coverage",
-    "build:js": "node ./scripts/build.js",
-    "watch:module": "cross-env NODE_ENV=MODULE rollup -cw",
-    "watch:umd": "cross-env NODE_ENV=BUILD rollup -cw",
-    "build:module": "cross-env NODE_ENV=MODULE rollup -c",
-    "build:umd": "cross-env NODE_ENV=UMD rollup -c",
-    "build:all": "cross-env NODE_ENV=ALL rollup -c"
+    "test-cov": "jest --coverage"
   },
   "lint-staged": {
     "packages/**/**.{ts}": [
@@ -81,7 +75,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "husky": "^4.3.0",
     "jest": "^26.6.3",
-    "lerna": "^3.22.1",
+    "lerna": "^4.0.0",
     "lint-staged": "^10.5.2",
     "ora": "^5.3.0",
     "prettier": "^2.2.1",
@@ -95,6 +89,6 @@
     "shelljs": "^0.8.4",
     "ts-jest": "^26.4.4",
     "tslib": "^2.0.3",
-    "typescript": "^4.2.2"
+    "typescript": "^4.4.4"
   }
 }
