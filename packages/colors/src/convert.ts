@@ -1,6 +1,13 @@
-import { ColorType, IAnyObject, TypeColor } from 'typings';
+import { ColorType, IAnyObject, TypeColor } from '..';
 import namedColor from '@tinyfe/color-keywords';
-import { convertHexToDecimal, convertToPercentage, mathMax, mathMin, parseIntFromHex, setAlpha } from './utils';
+import {
+  convertHexToDecimal,
+  convertToPercentage,
+  mathMax,
+  mathMin,
+  parseIntFromHex,
+  setAlpha,
+} from './utils';
 import { isValidCSSUnit, matchPattern } from './valid-color';
 import { hsvToRgb } from './hsv';
 import { hslToRgb } from './hsl';
@@ -35,17 +42,29 @@ export function parseToRgb(color: TypeColor) {
   }
 
   if (typeof color === 'object') {
-    if (isValidCSSUnit(color.r) && isValidCSSUnit(color.g) && isValidCSSUnit(color.b)) {
+    if (
+      isValidCSSUnit(color.r) &&
+      isValidCSSUnit(color.g) &&
+      isValidCSSUnit(color.b)
+    ) {
       rgb = rgbToRgb(color.r, color.g, color.b);
       ok = true;
       format = /%$/.test(color.r.toString()) ? 'prgb' : 'rgb';
-    } else if (isValidCSSUnit(color.h) && isValidCSSUnit(color.s) && isValidCSSUnit(color.v)) {
+    } else if (
+      isValidCSSUnit(color.h) &&
+      isValidCSSUnit(color.s) &&
+      isValidCSSUnit(color.v)
+    ) {
       s = convertToPercentage(color.s);
       v = convertToPercentage(color.v);
       rgb = hsvToRgb(color.h, s, v);
       ok = true;
       format = 'hsv';
-    } else if (isValidCSSUnit(color.h) && isValidCSSUnit(color.s) && isValidCSSUnit(color.l)) {
+    } else if (
+      isValidCSSUnit(color.h) &&
+      isValidCSSUnit(color.s) &&
+      isValidCSSUnit(color.l)
+    ) {
       s = convertToPercentage(color.s);
       l = convertToPercentage(color.l);
       rgb = hslToRgb(color.h, s, l);

@@ -1,4 +1,4 @@
-import { HexOptions } from 'typings';
+import { HexOptions } from '..';
 import { convertDecimalToHex, mathRound } from './utils';
 
 /**
@@ -9,7 +9,12 @@ import { convertDecimalToHex, mathRound } from './utils';
  * @param options short 3, full 6, default false
  * @return hex string
  */
-export function rgbToHex(r: number, g: number, b: number, options: HexOptions): string {
+export function rgbToHex(
+  r: number,
+  g: number,
+  b: number,
+  options: HexOptions,
+): string {
   const { short = false } = options;
   const hex = [
     mathRound(r).toString(16).padStart(2, '0'),
@@ -43,7 +48,13 @@ export function rgbToHex(r: number, g: number, b: number, options: HexOptions): 
  * @param options short 4, full 8, default false
  * @return hexa string
  */
-export function rgbaToHex(r: number, g: number, b: number, a: number, options: HexOptions): string {
+export function rgbaToHex(
+  r: number,
+  g: number,
+  b: number,
+  a: number,
+  options: HexOptions,
+): string {
   const { short = false } = options;
   const hex = [
     mathRound(r).toString(16).padStart(2, '0'),
@@ -79,7 +90,12 @@ export function rgbaToHex(r: number, g: number, b: number, a: number, options: H
  * @param a
  * @return hexa string
  */
-export function rgbaToArgbHex(r: number, g: number, b: number, a: number): string {
+export function rgbaToArgbHex(
+  r: number,
+  g: number,
+  b: number,
+  a: number,
+): string {
   const hex = [
     convertDecimalToHex(a.toString()).padStart(2, '0'),
     mathRound(r).toString(16).padStart(2, '0'),

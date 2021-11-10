@@ -1,8 +1,24 @@
 // LINK_TO: https://developer.mozilla.org/zh-CN/docs/Web/CSS/color_value
-import isColor, { isHex, isRgb, isRgba, isHsl, isHsla, isHsv, isHsva } from './valid-color';
+import isColor, {
+  isHex,
+  isRgb,
+  isRgba,
+  isHsl,
+  isHsla,
+  isHsv,
+  isHsva,
+} from './valid-color';
 import { flip, namedColor, parseToRgb } from './convert';
 import randomColor from './random-color';
-import { ColorKey, ColorOptions, ColorRGB, ColorType, HexOptions, IAnyObject, IColor } from 'typings';
+import {
+  ColorKey,
+  ColorOptions,
+  ColorRGB,
+  ColorType,
+  HexOptions,
+  IAnyObject,
+  IColor,
+} from '..';
 import { mathRound, setAlpha, setValueRange } from './utils';
 import { rgbToHsv } from './hsv';
 import { rgbToHsl } from './hsl';
@@ -85,7 +101,9 @@ export default class Color implements IColor {
   toPercentageRgbString(): string {
     const { r, g, b } = this.toPercentageRgb();
 
-    return this.a === 1 ? `rgb(${r}, ${g}, ${b})` : `rgba(${r}, ${g}, ${b}, ${this._alpha})`;
+    return this.a === 1
+      ? `rgb(${r}, ${g}, ${b})`
+      : `rgba(${r}, ${g}, ${b}, ${this._alpha})`;
   }
 
   isRgba(): boolean {
@@ -112,7 +130,9 @@ export default class Color implements IColor {
     const s = mathRound(hsl.s * 100);
     const l = mathRound(hsl.l * 100);
 
-    return this.a === 1 ? `hsl(${h}, ${s}%, ${l}%)` : `hsla(${h}, ${s}%, ${l}%, ${this._alpha})`;
+    return this.a === 1
+      ? `hsl(${h}, ${s}%, ${l}%)`
+      : `hsla(${h}, ${s}%, ${l}%, ${this._alpha})`;
   }
 
   isHsv(): boolean {
@@ -135,7 +155,9 @@ export default class Color implements IColor {
     const s = mathRound(hsv.s * 100);
     const v = mathRound(hsv.v * 100);
 
-    return this.a === 1 ? `hsv(${h}, ${s}%, ${v}%)` : `hsva(${h}, ${s}%, ${v}%, ${this._alpha})`;
+    return this.a === 1
+      ? `hsv(${h}, ${s}%, ${v}%)`
+      : `hsva(${h}, ${s}%, ${v}%, ${this._alpha})`;
   }
 
   randomColor(): string {

@@ -1,4 +1,4 @@
-import { ColorHSV, ColorRGB } from 'typings';
+import { ColorHSV, ColorRGB } from '..';
 import { getHue } from './hsl';
 import { mathMax, mathMin, mathRound, setValueRange } from './utils';
 

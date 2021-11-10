@@ -1,4 +1,4 @@
-import { ColorRGB } from 'typings';
+import { ColorRGB } from '..';
 import { setValueRange } from './utils';
 
 export function rgbToRgb(r: number, g: number, b: number): ColorRGB {

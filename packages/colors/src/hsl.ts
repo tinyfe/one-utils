@@ -1,4 +1,4 @@
-import { ColorHSL, ColorRGB } from 'typings';
+import { ColorHSL, ColorRGB } from '..';
 import { mathMax, mathMin, mathRound, setValueRange } from './utils';
 
 /**
@@ -31,7 +31,11 @@ export function rgbToHsl(r: number, g: number, b: number): ColorHSL {
  * @param lightness
  * @param delta max - min
  */
-export function getSaturation(max: number, min: number, lightness?: number): number {
+export function getSaturation(
+  max: number,
+  min: number,
+  lightness?: number,
+): number {
   lightness = lightness || (max + min) / 2;
   const delta = max - min;
   let s = 0;
@@ -49,7 +53,9 @@ export function getSaturation(max: number, min: number, lightness?: number): num
  * @return hue value
  */
 export function getHueFromRGB(r: number, g: number, b: number): number {
-  const deg = mathRound((Math.atan2(Math.sqrt(3) * (g - b), 2 * r - g - b) * 180) / Math.PI);
+  const deg = mathRound(
+    (Math.atan2(Math.sqrt(3) * (g - b), 2 * r - g - b) * 180) / Math.PI,
+  );
 
   const angel = deg >= 0 ? deg : 360 + (deg | 0);
   return angel / 360;
@@ -63,7 +69,13 @@ export function getHueFromRGB(r: number, g: number, b: number): number {
  * @param rgb
  * @return [0, 1], 通过[0, 1] * 360 -> [0°, 360°]
  */
-export function getHue(r: number, g: number, b: number, max: number, min: number): number {
+export function getHue(
+  r: number,
+  g: number,
+  b: number,
+  max: number,
+  min: number,
+): number {
   const delta = max - min;
   let h = 0;
   if (max !== min) {
