@@ -1,24 +1,10 @@
 {
+  "extends": "../../config/typescript/tsconfig.json",
+  "include": ["src/**/*", "index.d.ts"],
   "compilerOptions": {
-    "baseUrl": "./",
+    "rootDir": "./src",
     "outDir": "./lib",
-    "target": "ESNext",
-    "module": "commonjs",
-    "allowJs": false,
-    "esModuleInterop": true,
-    "moduleResolution": "node",
-    "strict": true,
-    "noFallthroughCasesInSwitch": true,
-    "skipLibCheck": true,
-    "allowSyntheticDefaultImports": true,
-    "declaration": true,
-    // "declarationMap": true,
-    // "sourceMap": true,
-    "typeRoots": ["node_modules/@types"],
-    "paths": {
-      "src": ["./src"]
-    }
+    "composite": true
   },
-  "exclude": ["node_modules", "__tests__", "src/types", "test", "build"],
-  "include": ["src"]
+  "references": []
 }

@@ -1,15 +1,10 @@
 {
-  "extends": "../../tsconfig.base.json",
+  "extends": "../../config/typescript/tsconfig.json",
+  "include": ["src/**/*", "index.d.ts"],
   "compilerOptions": {
-    "baseUrl": "./",
+    "rootDir": "./src",
     "outDir": "./lib",
-    // "declaration": true,
-    "declarationDir": "./lib/@types",
-    "typeRoots": ["src/typings/**/**", "./node_modules/@types"],
-    "paths": {
-      "src": ["./src"]
-    },
-    "lib": ["ES6", "ES7", "ES2016", "ES2017", "ES2018", "ESNext", "DOM"]
+    "composite": true
   },
-  "include": ["src/**/*", "src/typings/**/*", "index.d.ts"]
+  "references": []
 }
