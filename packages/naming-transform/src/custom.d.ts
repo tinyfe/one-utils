@@ -1,9 +1,9 @@
-interface NamingAtom {
+export interface NamingAtom {
   test?(input: string): boolean;
   transform?(input: string, index: number): string;
 }
 
-interface Options {
+export interface Options {
   splitRegexp?: RegExp | RegExp[];
   stripRegexp?: RegExp | RegExp[];
   delimiter?: string;

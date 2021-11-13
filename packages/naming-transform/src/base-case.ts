@@ -1,3 +1,4 @@
+import { Options } from './custom.d';
 import { lowerCase } from './utils/lower-case';
 
 // Support camel case ("camelCase" -> "camel Case" and "CAMELCase" -> "CAMEL Case").

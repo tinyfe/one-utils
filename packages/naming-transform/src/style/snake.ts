@@ -1,5 +1,5 @@
 // LINK_TO: https://en.wikipedia.org/wiki/Snake_case
-
+import { NamingAtom, Options } from '../custom.d';
 import { lowerCase } from '../utils/lower-case';
 import { baseCase } from '../base-case';
 

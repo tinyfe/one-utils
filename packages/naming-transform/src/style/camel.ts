@@ -1,3 +1,4 @@
+import { NamingAtom, Options } from '../custom.d';
 import { baseCase } from '../base-case';
 import { lowerCase } from '../utils/lower-case';
 import Pascal from './pascal';

@@ -8,6 +8,7 @@ import Snake from './style/snake';
 import Sentence from './style/sentence';
 import Underscore from './style/underscore';
 import { baseCase } from './base-case';
+import { Options } from './custom.d';
 
 export * from './base-case';
 export * from './utils/lower-case';

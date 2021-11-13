@@ -1,5 +1,5 @@
 // LINK_TO: https://en.wikipedia.org/wiki/Camel_case
-
+import { NamingAtom, Options } from '../custom.d';
 import { baseCase } from '../base-case';
 import { lowerCase } from '../utils/lower-case';
 import { upperCase } from '../utils/upper-case';

@@ -1,3 +1,4 @@
+import { NamingAtom, Options } from '../custom.d';
 import { upperCaseFirst } from '../utils/upper-case-first';
 import { lowerCase } from '../utils/lower-case';
 import { baseCase } from '../base-case';
