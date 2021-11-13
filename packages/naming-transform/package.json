@@ -1,6 +1,6 @@
 {
   "name": "@tinyfe/naming-transform",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "description": "Converting to different kind of naming style",
   "keywords": [
     "camel",
