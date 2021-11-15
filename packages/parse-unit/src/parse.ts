@@ -1,4 +1,4 @@
-import { Options, RegexMatch } from 'typings';
+import { Options } from './custom.d';
 import { cssUnitRegex } from './unit';
 
 export const KEYWORD = [
@@ -41,7 +41,7 @@ function parseUnit(key: string | number, options: Options = {}) {
   key = String(key);
 
   const num = parseFloat(key);
-  const unit = (key.match(/[\d.\-\+]*\s*(.*)/) as RegexMatch)[1];
+  const unit = (key.match(/[\d.\-\+]*\s*(.*)/) as RegExpMatchArray)[1];
   output = [num, unit];
 
   if (onlyValue) {
