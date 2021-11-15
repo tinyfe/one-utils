@@ -16,15 +16,15 @@ import {
   ColorRGB,
   ColorType,
   HexOptions,
-  IAnyObject,
-  IColor,
+  AnyObject,
+  BaseColor,
 } from '..';
 import { mathRound, setAlpha, setValueRange } from './utils';
 import { rgbToHsv } from './hsv';
 import { rgbToHsl } from './hsl';
 import { rgbaToHex, rgbToHex } from './hex';
 
-export default class Color implements IColor {
+export default class Color implements BaseColor {
   color: any;
   originColor: string;
   options: ColorOptions;
@@ -32,7 +32,7 @@ export default class Color implements IColor {
   g: ColorKey;
   b: ColorKey;
   a: ColorKey;
-  hexNames: IAnyObject;
+  hexNames: AnyObject;
   _alpha: number;
   _format: ColorType;
 
@@ -41,7 +41,7 @@ export default class Color implements IColor {
     this.originColor = color;
     this.options = options || {};
 
-    const rgb: IColor & { format: ColorType } = parseToRgb(color);
+    const rgb: BaseColor & { format: ColorType } = parseToRgb(color);
 
     this.r = rgb.r;
     this.g = rgb.g;

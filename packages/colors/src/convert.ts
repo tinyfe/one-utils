@@ -1,4 +1,4 @@
-import { ColorType, IAnyObject, TypeColor } from '..';
+import { ColorType, AnyObject, TypeColor } from '..';
 import namedColor from '@tinyfe/color-keywords';
 import {
   convertHexToDecimal,
@@ -193,8 +193,8 @@ export function parseStringToValue(color: string) {
 
 export { namedColor };
 
-export function flip(obj: IAnyObject): IAnyObject {
-  const flipped: IAnyObject = {};
+export function flip(obj: AnyObject): AnyObject {
+  const flipped: AnyObject = {};
 
   Object.keys(obj).forEach(key => {
     flipped[obj[key]] = key;

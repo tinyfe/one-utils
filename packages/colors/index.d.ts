@@ -1,6 +1,8 @@
+declare module '@tinyfe/color-keywords';
+
 export type ColorKey = number;
 
-export interface IAnyObject {
+export interface AnyObject {
   [key: string]: string;
 }
 export interface ColorRGB {
@@ -48,7 +50,7 @@ export interface HexOptions {
   short?: boolean;
 }
 
-export interface IColor extends ColorRGB {
+export interface BaseColor extends ColorRGB {
   format?: ColorType;
 }
 
