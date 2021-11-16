@@ -10,4 +10,4 @@ export {
   split,
 } from './regex-function';
 
-export * from './regex';
+export * from './regex/index';

@@ -1,6 +1,9 @@
-import { IFlags, Flags } from 'typings';
+import { IFlags, Flags } from './custom.d';
 
-export function getRegexInstance(regex: string | RegExp, option: IFlags = {}): RegExp {
+export function getRegexInstance(
+  regex: string | RegExp,
+  option: IFlags = {},
+): RegExp {
   let flags = '';
 
   Object.keys((key: keyof typeof Flags) => {
@@ -95,7 +98,11 @@ export function matchAll(
  * @param option
  * @returns number
  */
-export function search(regex: string | RegExp, value: string, option: IFlags = {}): number {
+export function search(
+  regex: string | RegExp,
+  value: string,
+  option: IFlags = {},
+): number {
   return value.search(getRegexInstance(regex, option));
 }
 
@@ -108,7 +115,10 @@ export function search(regex: string | RegExp, value: string, option: IFlags = {
  */
 export function replace(
   regex: string | RegExp,
-  value: { before: string; after: (substring: string, ...args: any[]) => string },
+  value: {
+    before: string;
+    after: (substring: string, ...args: any[]) => string;
+  },
   option: IFlags & { force?: boolean } = {},
 ): string {
   const { before, after } = value;
@@ -127,14 +137,20 @@ export function replace(
  */
 export function replaceAll(
   regex: string | RegExp,
-  value: { before: string; after: (substring: string, ...args: any[]) => string },
+  value: {
+    before: string;
+    after: (substring: string, ...args: any[]) => string;
+  },
   option: IFlags & { force?: boolean } = {},
 ): string {
   const { before, after } = value;
 
   const { force = false, ...rest } = option;
 
-  return before.replaceAll(force ? regex : getRegexInstance(regex, rest), after);
+  return before.replaceAll(
+    force ? regex : getRegexInstance(regex, rest),
+    after,
+  );
 }
 
 /**
