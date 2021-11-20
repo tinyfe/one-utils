@@ -33,8 +33,7 @@
     "build": "rm -rf lib && rm -rf es && run-s --print-label \"build:**\"",
     "watch": "tsc -- -w",
     "build:es": "npm run tsc -- --outDir es --module es6",
-    "build:cjs": "npm run tsc -- --outDir lib --module commonjs",
-    "prepublishOnly": "npm run build"
+    "build:cjs": "npm run tsc -- --outDir lib --module commonjs"
   },
   "devDependencies": {
     "@types/jest": "^27.0.2",

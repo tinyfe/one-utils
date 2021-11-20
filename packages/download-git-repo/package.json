@@ -2,6 +2,7 @@
   "name": "@tinyfe/download-git-repo",
   "version": "0.0.2",
   "description": "download git repo",
+  "private": true,
   "keywords": [
     "download",
     "git-repo",
@@ -34,8 +35,7 @@
     "build": "rm -rf lib && rm -rf es && run-s --print-label \"build:**\"",
     "watch": "tsc -- -w",
     "build:es": "npm run tsc -- --outDir es --module es6",
-    "build:cjs": "npm run tsc -- --outDir lib --module commonjs",
-    "prepublishOnly": "npm run build"
+    "build:cjs": "npm run tsc -- --outDir lib --module commonjs"
   },
   "devDependencies": {
     "@types/download": "^8.0.1",
@@ -51,5 +51,5 @@
   "dependencies": {
     "@tinyfe/git-clone": "0.0.1"
   },
-  "gitHead": "9e9cd3bad2992f35988bddef24750f49f7ca4bc6"
+  "gitHead": "47cca8ce43842f4a7a67136d7cb7cc86c4580a03"
 }
