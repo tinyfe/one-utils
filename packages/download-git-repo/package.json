@@ -18,7 +18,8 @@
     "es"
   ],
   "publishConfig": {
-    "assess": "public"
+    "assess": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "repository": {
     "type": "git",
@@ -50,5 +51,5 @@
   "dependencies": {
     "@tinyfe/git-clone": "0.0.1"
   },
-  "gitHead": "1247fac4389d3807af69076ee041c63547ad5cb4"
+  "gitHead": "9e9cd3bad2992f35988bddef24750f49f7ca4bc6"
 }
