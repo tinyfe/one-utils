@@ -1,8 +1,7 @@
 {
   "name": "@tinyfe/download-git-repo",
-  "version": "0.0.2",
+  "version": "0.0.0",
   "description": "download git repo",
-  "private": true,
   "keywords": [
     "download",
     "git-repo",
