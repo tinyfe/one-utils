@@ -1,0 +1,46 @@
+{
+  "name": "@tinyfe/share",
+  "version": "0.0.0",
+  "description": "share common utils or packages",
+  "keywords": [],
+  "author": "Rain120 <1085131904@qq.com>",
+  "homepage": "https://github.com/tinyfe/one-utils#readme",
+  "license": "MIT",
+  "main": "lib",
+  "module": "es",
+  "typings": "index.d.ts",
+  "files": [
+    "lib",
+    "es"
+  ],
+  "publishConfig": {
+    "assess": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tinyfe/one-utils.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tinyfe/one-utils/issues"
+  },
+  "scripts": {
+    "test": "jest",
+    "tsc": "tsc",
+    "build": "rm -rf lib && rm -rf es && run-s --print-label \"build:**\"",
+    "watch": "tsc -- -w",
+    "build:es": "npm run tsc -- --outDir es --module es6",
+    "build:cjs": "npm run tsc -- --outDir lib --module commonjs",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.0.2",
+    "@types/node": "^16.9.6",
+    "jest": "^27.2.1",
+    "npm-run-all": "^4.1.5",
+    "typescript": "^4.4.3"
+  },
+  "gitHead": "a3bd6d8f25ebe1ae44763b6887c07296248f2e64",
+  "dependencies": {
+    "chalk": "^5.0.0"
+  }
+}
