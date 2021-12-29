@@ -17,10 +17,6 @@
     "lib",
     "es"
   ],
-  "publishConfig": {
-    "assess": "public",
-    "registry": "https://registry.npmjs.org/"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tinyfe/one-utils.git"
@@ -51,5 +47,5 @@
   "dependencies": {
     "@tinyfe/git-clone": "0.0.1"
   },
-  "gitHead": "770814a4b1507578cf1eb3d91867011359d6f12e"
+  "gitHead": "405b5ccf2733e0030c6261c95d37777f37932d17"
 }
