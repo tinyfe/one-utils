@@ -1,6 +1,6 @@
 {
   "name": "@tinyfe/download-git-repo",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "download git repo",
   "keywords": [
     "download",
@@ -17,6 +17,10 @@
     "lib",
     "es"
   ],
+  "publishConfig": {
+    "assess": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tinyfe/one-utils.git"
