@@ -20,6 +20,12 @@
   "publishConfig": {
     "assess": "public"
   },
+  "maintainers": [
+    {
+      "name": "Rain120",
+      "email": "1085131904@qq.com"
+    }
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tinyfe/one-utils.git"
@@ -50,5 +56,5 @@
   "dependencies": {
     "@tinyfe/git-clone": "0.0.1"
   },
-  "gitHead": "4dd6504310dfc3fc734bd7f4f3e2e37f1f63169e"
+  "gitHead": "e8236f8e22630f4490e8a6147f08302f2c22d4d5"
 }
