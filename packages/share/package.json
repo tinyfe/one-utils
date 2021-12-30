@@ -39,7 +39,7 @@
     "npm-run-all": "^4.1.5",
     "typescript": "^4.4.3"
   },
-  "gitHead": "a3bd6d8f25ebe1ae44763b6887c07296248f2e64",
+  "gitHead": "4dd6504310dfc3fc734bd7f4f3e2e37f1f63169e",
   "dependencies": {
     "chalk": "^5.0.0"
   }

@@ -1,6 +1,6 @@
 {
   "name": "@tinyfe/download-git-repo",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "download git repo",
   "keywords": [
     "download",
@@ -18,8 +18,7 @@
     "es"
   ],
   "publishConfig": {
-    "assess": "public",
-    "registry": "https://registry.npmjs.org/"
+    "assess": "public"
   },
   "repository": {
     "type": "git",
@@ -51,5 +50,5 @@
   "dependencies": {
     "@tinyfe/git-clone": "0.0.1"
   },
-  "gitHead": "405b5ccf2733e0030c6261c95d37777f37932d17"
+  "gitHead": "4dd6504310dfc3fc734bd7f4f3e2e37f1f63169e"
 }
