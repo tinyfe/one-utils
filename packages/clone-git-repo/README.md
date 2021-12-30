@@ -1,11 +1,11 @@
-# `download-git-repo`
+# `clone-git-repo`
 
 > download git repo
 
 ## Usage
 
 ```js
-import { download, downloadPromisify } from '@tinyfe/download-git-repo';
+import { download, downloadPromisify } from '@tinyfe/clone-git-repo';
 // sync download the repo from a git repository
 download('Rain120/mini-webpack', './clone/' /* execute absolute path */, {
   clone: true,

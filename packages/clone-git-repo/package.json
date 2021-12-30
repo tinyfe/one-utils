@@ -1,11 +1,11 @@
 {
-  "name": "@tinyfe/download-git-repo",
-  "version": "0.0.2",
+  "name": "@tinyfe/clone-git-repo",
+  "version": "0.0.0",
   "description": "download git repo",
   "keywords": [
     "download",
     "git-repo",
-    "download-git-repo"
+    "clone-git-repo"
   ],
   "author": "Rain120 <1085131904@qq.com>",
   "homepage": "https://github.com/tinyfe/one-utils#readme",
@@ -56,5 +56,5 @@
   "dependencies": {
     "@tinyfe/git-clone": "0.0.1"
   },
-  "gitHead": "e8236f8e22630f4490e8a6147f08302f2c22d4d5"
+  "gitHead": "e5b3fb37fdd5fd7aee29a3d6b7c8e4e614174357"
 }
