@@ -5,5 +5,9 @@
 ## Usage
 
 ```js
-import chalk from '@tinyfe/share/chalk';
+// commonjs
+const { chalk } = require('@tinyfe/share/lib');
+
+// es
+import { chalk } from '@tinyfe/share/es';
 ```
