@@ -4,10 +4,21 @@
 
 ## Usage
 
-```js
-// commonjs
-const { chalk } = require('@tinyfe/share/lib');
+### Commonjs
 
-// es
+```js
+const { chalk } = require('@tinyfe/share/lib');
+```
+
+### ES Module
+
+```js
 import { chalk } from '@tinyfe/share/es';
 ```
+
+## Exist Common Utils
+
+- [x] chalk
+- [x] clearConsole
+- [x] isWritable
+- [x] shouldUseYarn
