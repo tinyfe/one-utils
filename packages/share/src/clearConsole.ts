@@ -1,6 +1,6 @@
 import readline from 'readline';
 
-export const clearConsole = (title?: string) => {
+const clearConsole = (title?: string) => {
   if (process.stdout.isTTY) {
     const blank = '\n'.repeat(process.stdout.rows);
     console.log(blank);
@@ -11,3 +11,5 @@ export const clearConsole = (title?: string) => {
     }
   }
 };
+
+export default clearConsole;

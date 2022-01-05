@@ -1,6 +1,6 @@
 import { execSync } from 'child_process';
 
-export function shouldUseYarn(): boolean {
+function shouldUseYarn(): boolean {
   try {
     const userAgent = process.env.npm_config_user_agent;
     if (userAgent) {
@@ -12,3 +12,5 @@ export function shouldUseYarn(): boolean {
     return false;
   }
 }
+
+export default shouldUseYarn;
