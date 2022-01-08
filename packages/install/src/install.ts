@@ -1,5 +1,5 @@
 import chalk from 'chalk';
-const { spawn } = require('child_process');
+import { spawn } from 'child_process';
 
 export interface InstallArgs {
   useYarn?: boolean;
