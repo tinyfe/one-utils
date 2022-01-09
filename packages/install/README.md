@@ -5,7 +5,8 @@
 ## Usage
 
 ```js
-import { install, showUseYarn } from '@tinyfe/install';
+import { install } from '@tinyfe/install';
+import { showUseYarn } from '@tinyfe/share';
 
 install(process.cwd(), ['@tinyfe/git-status']);
 
